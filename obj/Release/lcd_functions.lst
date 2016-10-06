@@ -1,0 +1,2017 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.6.0 #4309 (Jul 28 2006)
+                              4 ; This file generated Wed Apr 06 01:02:31 2016
+                              5 ;--------------------------------------------------------
+                              6 	.module lcd_functions
+                              7 	.optsdcc -mmcs51 --model-large
+                              8 	
+                              9 ;--------------------------------------------------------
+                             10 ; Public variables in this module
+                             11 ;--------------------------------------------------------
+                             12 	.globl _RW
+                             13 	.globl _RS
+                             14 	.globl _TF1
+                             15 	.globl _TR1
+                             16 	.globl _TF0
+                             17 	.globl _TR0
+                             18 	.globl _IE1
+                             19 	.globl _IT1
+                             20 	.globl _IE0
+                             21 	.globl _IT0
+                             22 	.globl _SM0
+                             23 	.globl _SM1
+                             24 	.globl _SM2
+                             25 	.globl _REN
+                             26 	.globl _TB8
+                             27 	.globl _RB8
+                             28 	.globl _TI
+                             29 	.globl _RI
+                             30 	.globl _CY
+                             31 	.globl _AC
+                             32 	.globl _F0
+                             33 	.globl _RS1
+                             34 	.globl _RS0
+                             35 	.globl _OV
+                             36 	.globl _F1
+                             37 	.globl _P
+                             38 	.globl _RD
+                             39 	.globl _WR
+                             40 	.globl _T1
+                             41 	.globl _T0
+                             42 	.globl _INT1
+                             43 	.globl _INT0
+                             44 	.globl _TXD0
+                             45 	.globl _TXD
+                             46 	.globl _RXD0
+                             47 	.globl _RXD
+                             48 	.globl _P3_7
+                             49 	.globl _P3_6
+                             50 	.globl _P3_5
+                             51 	.globl _P3_4
+                             52 	.globl _P3_3
+                             53 	.globl _P3_2
+                             54 	.globl _P3_1
+                             55 	.globl _P3_0
+                             56 	.globl _P2_7
+                             57 	.globl _P2_6
+                             58 	.globl _P2_5
+                             59 	.globl _P2_4
+                             60 	.globl _P2_3
+                             61 	.globl _P2_2
+                             62 	.globl _P2_1
+                             63 	.globl _P2_0
+                             64 	.globl _P1_7
+                             65 	.globl _P1_6
+                             66 	.globl _P1_5
+                             67 	.globl _P1_4
+                             68 	.globl _P1_3
+                             69 	.globl _P1_2
+                             70 	.globl _P1_1
+                             71 	.globl _P1_0
+                             72 	.globl _P0_7
+                             73 	.globl _P0_6
+                             74 	.globl _P0_5
+                             75 	.globl _P0_4
+                             76 	.globl _P0_3
+                             77 	.globl _P0_2
+                             78 	.globl _P0_1
+                             79 	.globl _P0_0
+                             80 	.globl _PS
+                             81 	.globl _PT1
+                             82 	.globl _PX1
+                             83 	.globl _PT0
+                             84 	.globl _PX0
+                             85 	.globl _EA
+                             86 	.globl _ES
+                             87 	.globl _ET1
+                             88 	.globl _EX1
+                             89 	.globl _ET0
+                             90 	.globl _EX0
+                             91 	.globl _BREG_F7
+                             92 	.globl _BREG_F6
+                             93 	.globl _BREG_F5
+                             94 	.globl _BREG_F4
+                             95 	.globl _BREG_F3
+                             96 	.globl _BREG_F2
+                             97 	.globl _BREG_F1
+                             98 	.globl _BREG_F0
+                             99 	.globl _P5_7
+                            100 	.globl _P5_6
+                            101 	.globl _P5_5
+                            102 	.globl _P5_4
+                            103 	.globl _P5_3
+                            104 	.globl _P5_2
+                            105 	.globl _P5_1
+                            106 	.globl _P5_0
+                            107 	.globl _P4_7
+                            108 	.globl _P4_6
+                            109 	.globl _P4_5
+                            110 	.globl _P4_4
+                            111 	.globl _P4_3
+                            112 	.globl _P4_2
+                            113 	.globl _P4_1
+                            114 	.globl _P4_0
+                            115 	.globl _PX0L
+                            116 	.globl _PT0L
+                            117 	.globl _PX1L
+                            118 	.globl _PT1L
+                            119 	.globl _PLS
+                            120 	.globl _PT2L
+                            121 	.globl _PPCL
+                            122 	.globl _EC
+                            123 	.globl _CCF0
+                            124 	.globl _CCF1
+                            125 	.globl _CCF2
+                            126 	.globl _CCF3
+                            127 	.globl _CCF4
+                            128 	.globl _CR
+                            129 	.globl _CF
+                            130 	.globl _TF2
+                            131 	.globl _EXF2
+                            132 	.globl _RCLK
+                            133 	.globl _TCLK
+                            134 	.globl _EXEN2
+                            135 	.globl _TR2
+                            136 	.globl _C_T2
+                            137 	.globl _CP_RL2
+                            138 	.globl _T2CON_7
+                            139 	.globl _T2CON_6
+                            140 	.globl _T2CON_5
+                            141 	.globl _T2CON_4
+                            142 	.globl _T2CON_3
+                            143 	.globl _T2CON_2
+                            144 	.globl _T2CON_1
+                            145 	.globl _T2CON_0
+                            146 	.globl _PT2
+                            147 	.globl _ET2
+                            148 	.globl _TMOD
+                            149 	.globl _TL1
+                            150 	.globl _TL0
+                            151 	.globl _TH1
+                            152 	.globl _TH0
+                            153 	.globl _TCON
+                            154 	.globl _SP
+                            155 	.globl _SCON
+                            156 	.globl _SBUF0
+                            157 	.globl _SBUF
+                            158 	.globl _PSW
+                            159 	.globl _PCON
+                            160 	.globl _P3
+                            161 	.globl _P2
+                            162 	.globl _P1
+                            163 	.globl _P0
+                            164 	.globl _IP
+                            165 	.globl _IE
+                            166 	.globl _DP0L
+                            167 	.globl _DPL
+                            168 	.globl _DP0H
+                            169 	.globl _DPH
+                            170 	.globl _B
+                            171 	.globl _ACC
+                            172 	.globl _EECON
+                            173 	.globl _KBF
+                            174 	.globl _KBE
+                            175 	.globl _KBLS
+                            176 	.globl _BRL
+                            177 	.globl _BDRCON
+                            178 	.globl _T2MOD
+                            179 	.globl _SPDAT
+                            180 	.globl _SPSTA
+                            181 	.globl _SPCON
+                            182 	.globl _SADEN
+                            183 	.globl _SADDR
+                            184 	.globl _WDTPRG
+                            185 	.globl _WDTRST
+                            186 	.globl _P5
+                            187 	.globl _P4
+                            188 	.globl _IPH1
+                            189 	.globl _IPL1
+                            190 	.globl _IPH0
+                            191 	.globl _IPL0
+                            192 	.globl _IEN1
+                            193 	.globl _IEN0
+                            194 	.globl _CMOD
+                            195 	.globl _CL
+                            196 	.globl _CH
+                            197 	.globl _CCON
+                            198 	.globl _CCAPM4
+                            199 	.globl _CCAPM3
+                            200 	.globl _CCAPM2
+                            201 	.globl _CCAPM1
+                            202 	.globl _CCAPM0
+                            203 	.globl _CCAP4L
+                            204 	.globl _CCAP3L
+                            205 	.globl _CCAP2L
+                            206 	.globl _CCAP1L
+                            207 	.globl _CCAP0L
+                            208 	.globl _CCAP4H
+                            209 	.globl _CCAP3H
+                            210 	.globl _CCAP2H
+                            211 	.globl _CCAP1H
+                            212 	.globl _CCAP0H
+                            213 	.globl _CKCKON1
+                            214 	.globl _CKCKON0
+                            215 	.globl _CKRL
+                            216 	.globl _AUXR1
+                            217 	.globl _AUXR
+                            218 	.globl _TH2
+                            219 	.globl _TL2
+                            220 	.globl _RCAP2H
+                            221 	.globl _RCAP2L
+                            222 	.globl _T2CON
+                            223 	.globl _ramDump_PARM_3
+                            224 	.globl _ramDump_PARM_2
+                            225 	.globl _lcdgotoxy_PARM_2
+                            226 	.globl _lcdputstr_PARM_3
+                            227 	.globl _lcdputstr_PARM_2
+                            228 	.globl _dataout_PARM_2
+                            229 	.globl _dataout
+                            230 	.globl _Datain
+                            231 	.globl _CMD_write
+                            232 	.globl _DATA_write
+                            233 	.globl _lcdputch
+                            234 	.globl _lcdinit
+                            235 	.globl _lcdputstr
+                            236 	.globl _lcdbusywait
+                            237 	.globl _lcdgotoaddr
+                            238 	.globl _lcdclear
+                            239 	.globl _lcdgotoxy
+                            240 	.globl _checkValidrow
+                            241 	.globl _checkValidcolumn
+                            242 	.globl _ramDump
+                            243 ;--------------------------------------------------------
+                            244 ; special function registers
+                            245 ;--------------------------------------------------------
+                            246 	.area RSEG    (DATA)
+                    00C8    247 _T2CON	=	0x00c8
+                    00CA    248 _RCAP2L	=	0x00ca
+                    00CB    249 _RCAP2H	=	0x00cb
+                    00CC    250 _TL2	=	0x00cc
+                    00CD    251 _TH2	=	0x00cd
+                    008E    252 _AUXR	=	0x008e
+                    00A2    253 _AUXR1	=	0x00a2
+                    0097    254 _CKRL	=	0x0097
+                    008F    255 _CKCKON0	=	0x008f
+                    008F    256 _CKCKON1	=	0x008f
+                    00FA    257 _CCAP0H	=	0x00fa
+                    00FB    258 _CCAP1H	=	0x00fb
+                    00FC    259 _CCAP2H	=	0x00fc
+                    00FD    260 _CCAP3H	=	0x00fd
+                    00FE    261 _CCAP4H	=	0x00fe
+                    00EA    262 _CCAP0L	=	0x00ea
+                    00EB    263 _CCAP1L	=	0x00eb
+                    00EC    264 _CCAP2L	=	0x00ec
+                    00ED    265 _CCAP3L	=	0x00ed
+                    00EE    266 _CCAP4L	=	0x00ee
+                    00DA    267 _CCAPM0	=	0x00da
+                    00DB    268 _CCAPM1	=	0x00db
+                    00DC    269 _CCAPM2	=	0x00dc
+                    00DD    270 _CCAPM3	=	0x00dd
+                    00DE    271 _CCAPM4	=	0x00de
+                    00D8    272 _CCON	=	0x00d8
+                    00F9    273 _CH	=	0x00f9
+                    00E9    274 _CL	=	0x00e9
+                    00D9    275 _CMOD	=	0x00d9
+                    00A8    276 _IEN0	=	0x00a8
+                    00B1    277 _IEN1	=	0x00b1
+                    00B8    278 _IPL0	=	0x00b8
+                    00B7    279 _IPH0	=	0x00b7
+                    00B2    280 _IPL1	=	0x00b2
+                    00B3    281 _IPH1	=	0x00b3
+                    00C0    282 _P4	=	0x00c0
+                    00D8    283 _P5	=	0x00d8
+                    00A6    284 _WDTRST	=	0x00a6
+                    00A7    285 _WDTPRG	=	0x00a7
+                    00A9    286 _SADDR	=	0x00a9
+                    00B9    287 _SADEN	=	0x00b9
+                    00C3    288 _SPCON	=	0x00c3
+                    00C4    289 _SPSTA	=	0x00c4
+                    00C5    290 _SPDAT	=	0x00c5
+                    00C9    291 _T2MOD	=	0x00c9
+                    009B    292 _BDRCON	=	0x009b
+                    009A    293 _BRL	=	0x009a
+                    009C    294 _KBLS	=	0x009c
+                    009D    295 _KBE	=	0x009d
+                    009E    296 _KBF	=	0x009e
+                    00D2    297 _EECON	=	0x00d2
+                    00E0    298 _ACC	=	0x00e0
+                    00F0    299 _B	=	0x00f0
+                    0083    300 _DPH	=	0x0083
+                    0083    301 _DP0H	=	0x0083
+                    0082    302 _DPL	=	0x0082
+                    0082    303 _DP0L	=	0x0082
+                    00A8    304 _IE	=	0x00a8
+                    00B8    305 _IP	=	0x00b8
+                    0080    306 _P0	=	0x0080
+                    0090    307 _P1	=	0x0090
+                    00A0    308 _P2	=	0x00a0
+                    00B0    309 _P3	=	0x00b0
+                    0087    310 _PCON	=	0x0087
+                    00D0    311 _PSW	=	0x00d0
+                    0099    312 _SBUF	=	0x0099
+                    0099    313 _SBUF0	=	0x0099
+                    0098    314 _SCON	=	0x0098
+                    0081    315 _SP	=	0x0081
+                    0088    316 _TCON	=	0x0088
+                    008C    317 _TH0	=	0x008c
+                    008D    318 _TH1	=	0x008d
+                    008A    319 _TL0	=	0x008a
+                    008B    320 _TL1	=	0x008b
+                    0089    321 _TMOD	=	0x0089
+                            322 ;--------------------------------------------------------
+                            323 ; special function bits
+                            324 ;--------------------------------------------------------
+                            325 	.area RSEG    (DATA)
+                    00AD    326 _ET2	=	0x00ad
+                    00BD    327 _PT2	=	0x00bd
+                    00C8    328 _T2CON_0	=	0x00c8
+                    00C9    329 _T2CON_1	=	0x00c9
+                    00CA    330 _T2CON_2	=	0x00ca
+                    00CB    331 _T2CON_3	=	0x00cb
+                    00CC    332 _T2CON_4	=	0x00cc
+                    00CD    333 _T2CON_5	=	0x00cd
+                    00CE    334 _T2CON_6	=	0x00ce
+                    00CF    335 _T2CON_7	=	0x00cf
+                    00C8    336 _CP_RL2	=	0x00c8
+                    00C9    337 _C_T2	=	0x00c9
+                    00CA    338 _TR2	=	0x00ca
+                    00CB    339 _EXEN2	=	0x00cb
+                    00CC    340 _TCLK	=	0x00cc
+                    00CD    341 _RCLK	=	0x00cd
+                    00CE    342 _EXF2	=	0x00ce
+                    00CF    343 _TF2	=	0x00cf
+                    00DF    344 _CF	=	0x00df
+                    00DE    345 _CR	=	0x00de
+                    00DC    346 _CCF4	=	0x00dc
+                    00DB    347 _CCF3	=	0x00db
+                    00DA    348 _CCF2	=	0x00da
+                    00D9    349 _CCF1	=	0x00d9
+                    00D8    350 _CCF0	=	0x00d8
+                    00AE    351 _EC	=	0x00ae
+                    00BE    352 _PPCL	=	0x00be
+                    00BD    353 _PT2L	=	0x00bd
+                    00BC    354 _PLS	=	0x00bc
+                    00BB    355 _PT1L	=	0x00bb
+                    00BA    356 _PX1L	=	0x00ba
+                    00B9    357 _PT0L	=	0x00b9
+                    00B8    358 _PX0L	=	0x00b8
+                    00C0    359 _P4_0	=	0x00c0
+                    00C1    360 _P4_1	=	0x00c1
+                    00C2    361 _P4_2	=	0x00c2
+                    00C3    362 _P4_3	=	0x00c3
+                    00C4    363 _P4_4	=	0x00c4
+                    00C5    364 _P4_5	=	0x00c5
+                    00C6    365 _P4_6	=	0x00c6
+                    00C7    366 _P4_7	=	0x00c7
+                    00D8    367 _P5_0	=	0x00d8
+                    00D9    368 _P5_1	=	0x00d9
+                    00DA    369 _P5_2	=	0x00da
+                    00DB    370 _P5_3	=	0x00db
+                    00DC    371 _P5_4	=	0x00dc
+                    00DD    372 _P5_5	=	0x00dd
+                    00DE    373 _P5_6	=	0x00de
+                    00DF    374 _P5_7	=	0x00df
+                    00F0    375 _BREG_F0	=	0x00f0
+                    00F1    376 _BREG_F1	=	0x00f1
+                    00F2    377 _BREG_F2	=	0x00f2
+                    00F3    378 _BREG_F3	=	0x00f3
+                    00F4    379 _BREG_F4	=	0x00f4
+                    00F5    380 _BREG_F5	=	0x00f5
+                    00F6    381 _BREG_F6	=	0x00f6
+                    00F7    382 _BREG_F7	=	0x00f7
+                    00A8    383 _EX0	=	0x00a8
+                    00A9    384 _ET0	=	0x00a9
+                    00AA    385 _EX1	=	0x00aa
+                    00AB    386 _ET1	=	0x00ab
+                    00AC    387 _ES	=	0x00ac
+                    00AF    388 _EA	=	0x00af
+                    00B8    389 _PX0	=	0x00b8
+                    00B9    390 _PT0	=	0x00b9
+                    00BA    391 _PX1	=	0x00ba
+                    00BB    392 _PT1	=	0x00bb
+                    00BC    393 _PS	=	0x00bc
+                    0080    394 _P0_0	=	0x0080
+                    0081    395 _P0_1	=	0x0081
+                    0082    396 _P0_2	=	0x0082
+                    0083    397 _P0_3	=	0x0083
+                    0084    398 _P0_4	=	0x0084
+                    0085    399 _P0_5	=	0x0085
+                    0086    400 _P0_6	=	0x0086
+                    0087    401 _P0_7	=	0x0087
+                    0090    402 _P1_0	=	0x0090
+                    0091    403 _P1_1	=	0x0091
+                    0092    404 _P1_2	=	0x0092
+                    0093    405 _P1_3	=	0x0093
+                    0094    406 _P1_4	=	0x0094
+                    0095    407 _P1_5	=	0x0095
+                    0096    408 _P1_6	=	0x0096
+                    0097    409 _P1_7	=	0x0097
+                    00A0    410 _P2_0	=	0x00a0
+                    00A1    411 _P2_1	=	0x00a1
+                    00A2    412 _P2_2	=	0x00a2
+                    00A3    413 _P2_3	=	0x00a3
+                    00A4    414 _P2_4	=	0x00a4
+                    00A5    415 _P2_5	=	0x00a5
+                    00A6    416 _P2_6	=	0x00a6
+                    00A7    417 _P2_7	=	0x00a7
+                    00B0    418 _P3_0	=	0x00b0
+                    00B1    419 _P3_1	=	0x00b1
+                    00B2    420 _P3_2	=	0x00b2
+                    00B3    421 _P3_3	=	0x00b3
+                    00B4    422 _P3_4	=	0x00b4
+                    00B5    423 _P3_5	=	0x00b5
+                    00B6    424 _P3_6	=	0x00b6
+                    00B7    425 _P3_7	=	0x00b7
+                    00B0    426 _RXD	=	0x00b0
+                    00B0    427 _RXD0	=	0x00b0
+                    00B1    428 _TXD	=	0x00b1
+                    00B1    429 _TXD0	=	0x00b1
+                    00B2    430 _INT0	=	0x00b2
+                    00B3    431 _INT1	=	0x00b3
+                    00B4    432 _T0	=	0x00b4
+                    00B5    433 _T1	=	0x00b5
+                    00B6    434 _WR	=	0x00b6
+                    00B7    435 _RD	=	0x00b7
+                    00D0    436 _P	=	0x00d0
+                    00D1    437 _F1	=	0x00d1
+                    00D2    438 _OV	=	0x00d2
+                    00D3    439 _RS0	=	0x00d3
+                    00D4    440 _RS1	=	0x00d4
+                    00D5    441 _F0	=	0x00d5
+                    00D6    442 _AC	=	0x00d6
+                    00D7    443 _CY	=	0x00d7
+                    0098    444 _RI	=	0x0098
+                    0099    445 _TI	=	0x0099
+                    009A    446 _RB8	=	0x009a
+                    009B    447 _TB8	=	0x009b
+                    009C    448 _REN	=	0x009c
+                    009D    449 _SM2	=	0x009d
+                    009E    450 _SM1	=	0x009e
+                    009F    451 _SM0	=	0x009f
+                    0088    452 _IT0	=	0x0088
+                    0089    453 _IE0	=	0x0089
+                    008A    454 _IT1	=	0x008a
+                    008B    455 _IE1	=	0x008b
+                    008C    456 _TR0	=	0x008c
+                    008D    457 _TF0	=	0x008d
+                    008E    458 _TR1	=	0x008e
+                    008F    459 _TF1	=	0x008f
+                    0096    460 _RS	=	0x0096
+                    0097    461 _RW	=	0x0097
+                            462 ;--------------------------------------------------------
+                            463 ; overlayable register banks
+                            464 ;--------------------------------------------------------
+                            465 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                     466 	.ds 8
+                            467 ;--------------------------------------------------------
+                            468 ; internal ram data
+                            469 ;--------------------------------------------------------
+                            470 	.area DSEG    (DATA)
+   0000                     471 _lcdputstr_sloc0_1_0:
+   0000                     472 	.ds 3
+   0003                     473 _ramDump_sloc0_1_0:
+   0003                     474 	.ds 1
+   0004                     475 _ramDump_sloc1_1_0:
+   0004                     476 	.ds 1
+   0005                     477 _ramDump_sloc2_1_0:
+   0005                     478 	.ds 1
+                            479 ;--------------------------------------------------------
+                            480 ; overlayable items in internal ram 
+                            481 ;--------------------------------------------------------
+                            482 	.area OSEG    (OVR,DATA)
+                            483 ;--------------------------------------------------------
+                            484 ; indirectly addressable internal ram data
+                            485 ;--------------------------------------------------------
+                            486 	.area ISEG    (DATA)
+                            487 ;--------------------------------------------------------
+                            488 ; bit data
+                            489 ;--------------------------------------------------------
+                            490 	.area BSEG    (BIT)
+                            491 ;--------------------------------------------------------
+                            492 ; paged external ram data
+                            493 ;--------------------------------------------------------
+                            494 	.area PSEG    (PAG,XDATA)
+                            495 ;--------------------------------------------------------
+                            496 ; external ram data
+                            497 ;--------------------------------------------------------
+                            498 	.area XSEG    (XDATA)
+   0000                     499 _dataout_PARM_2:
+   0000                     500 	.ds 1
+   0001                     501 _dataout_address_1_1:
+   0001                     502 	.ds 2
+   0003                     503 _Datain_address_1_1:
+   0003                     504 	.ds 2
+   0005                     505 _CMD_write_cmd_input_1_1:
+   0005                     506 	.ds 1
+   0006                     507 _DATA_write_data_input_1_1:
+   0006                     508 	.ds 1
+   0007                     509 _lcdputch_data_input_1_1:
+   0007                     510 	.ds 1
+   0008                     511 _lcdputstr_PARM_2:
+   0008                     512 	.ds 2
+   000A                     513 _lcdputstr_PARM_3:
+   000A                     514 	.ds 2
+   000C                     515 _lcdputstr_string_ptr_1_1:
+   000C                     516 	.ds 3
+   000F                     517 _lcdgotoaddr_address_1_1:
+   000F                     518 	.ds 2
+   0011                     519 _lcdgotoxy_PARM_2:
+   0011                     520 	.ds 2
+   0013                     521 _lcdgotoxy_row_1_1:
+   0013                     522 	.ds 2
+   0015                     523 _checkValidrow_row_1_1:
+   0015                     524 	.ds 2
+   0017                     525 _checkValidcolumn_column_1_1:
+   0017                     526 	.ds 2
+   0019                     527 _ramDump_PARM_2:
+   0019                     528 	.ds 1
+   001A                     529 _ramDump_PARM_3:
+   001A                     530 	.ds 1
+   001B                     531 _ramDump_command_1_1:
+   001B                     532 	.ds 1
+                            533 ;--------------------------------------------------------
+                            534 ; external initialized ram data
+                            535 ;--------------------------------------------------------
+                            536 	.area XISEG   (XDATA)
+                            537 	.area HOME    (CODE)
+                            538 	.area GSINIT0 (CODE)
+                            539 	.area GSINIT1 (CODE)
+                            540 	.area GSINIT2 (CODE)
+                            541 	.area GSINIT3 (CODE)
+                            542 	.area GSINIT4 (CODE)
+                            543 	.area GSINIT5 (CODE)
+                            544 	.area GSINIT  (CODE)
+                            545 	.area GSFINAL (CODE)
+                            546 	.area CSEG    (CODE)
+                            547 ;--------------------------------------------------------
+                            548 ; global & static initialisations
+                            549 ;--------------------------------------------------------
+                            550 	.area HOME    (CODE)
+                            551 	.area GSINIT  (CODE)
+                            552 	.area GSFINAL (CODE)
+                            553 	.area GSINIT  (CODE)
+                            554 ;--------------------------------------------------------
+                            555 ; Home
+                            556 ;--------------------------------------------------------
+                            557 	.area HOME    (CODE)
+                            558 	.area CSEG    (CODE)
+                            559 ;--------------------------------------------------------
+                            560 ; code
+                            561 ;--------------------------------------------------------
+                            562 	.area CSEG    (CODE)
+                            563 ;------------------------------------------------------------
+                            564 ;Allocation info for local variables in function 'dataout'
+                            565 ;------------------------------------------------------------
+                            566 ;x                         Allocated with name '_dataout_PARM_2'
+                            567 ;address                   Allocated with name '_dataout_address_1_1'
+                            568 ;ptr                       Allocated with name '_dataout_ptr_1_1'
+                            569 ;------------------------------------------------------------
+                            570 ;	lcd_functions.c:39: void dataout(int address, unsigned char x)
+                            571 ;	-----------------------------------------
+                            572 ;	 function dataout
+                            573 ;	-----------------------------------------
+   0000                     574 _dataout:
+                    0002    575 	ar2 = 0x02
+                    0003    576 	ar3 = 0x03
+                    0004    577 	ar4 = 0x04
+                    0005    578 	ar5 = 0x05
+                    0006    579 	ar6 = 0x06
+                    0007    580 	ar7 = 0x07
+                    0000    581 	ar0 = 0x00
+                    0001    582 	ar1 = 0x01
+                            583 ;	genReceive
+   0000 AA 83               584 	mov	r2,dph
+   0002 E5 82               585 	mov	a,dpl
+   0004 90s00r01            586 	mov	dptr,#_dataout_address_1_1
+   0007 F0                  587 	movx	@dptr,a
+   0008 A3                  588 	inc	dptr
+   0009 EA                  589 	mov	a,r2
+   000A F0                  590 	movx	@dptr,a
+                            591 ;	lcd_functions.c:41: xdata char *ptr = (xdata char *) address;
+                            592 ;	genAssign
+   000B 90s00r01            593 	mov	dptr,#_dataout_address_1_1
+   000E E0                  594 	movx	a,@dptr
+   000F FA                  595 	mov	r2,a
+   0010 A3                  596 	inc	dptr
+   0011 E0                  597 	movx	a,@dptr
+   0012 FB                  598 	mov	r3,a
+                            599 ;	genCast
+                            600 ;	lcd_functions.c:42: *ptr =x;
+                            601 ;	genAssign
+   0013 90s00r00            602 	mov	dptr,#_dataout_PARM_2
+   0016 E0                  603 	movx	a,@dptr
+                            604 ;	genPointerSet
+                            605 ;     genFarPointerSet
+   0017 FC                  606 	mov	r4,a
+   0018 8A 82               607 	mov	dpl,r2
+   001A 8B 83               608 	mov	dph,r3
+                            609 ;	Peephole 136	removed redundant move
+   001C F0                  610 	movx	@dptr,a
+                            611 ;	Peephole 300	removed redundant label 00101$
+   001D 22                  612 	ret
+                            613 ;------------------------------------------------------------
+                            614 ;Allocation info for local variables in function 'Datain'
+                            615 ;------------------------------------------------------------
+                            616 ;address                   Allocated with name '_Datain_address_1_1'
+                            617 ;x                         Allocated with name '_Datain_x_1_1'
+                            618 ;ptr                       Allocated with name '_Datain_ptr_1_1'
+                            619 ;------------------------------------------------------------
+                            620 ;	lcd_functions.c:45: unsigned char Datain(int address)
+                            621 ;	-----------------------------------------
+                            622 ;	 function Datain
+                            623 ;	-----------------------------------------
+   001E                     624 _Datain:
+                            625 ;	genReceive
+   001E AA 83               626 	mov	r2,dph
+   0020 E5 82               627 	mov	a,dpl
+   0022 90s00r03            628 	mov	dptr,#_Datain_address_1_1
+   0025 F0                  629 	movx	@dptr,a
+   0026 A3                  630 	inc	dptr
+   0027 EA                  631 	mov	a,r2
+   0028 F0                  632 	movx	@dptr,a
+                            633 ;	lcd_functions.c:48: xdata char *ptr = (xdata char *) address;
+                            634 ;	genAssign
+   0029 90s00r03            635 	mov	dptr,#_Datain_address_1_1
+   002C E0                  636 	movx	a,@dptr
+   002D FA                  637 	mov	r2,a
+   002E A3                  638 	inc	dptr
+   002F E0                  639 	movx	a,@dptr
+   0030 FB                  640 	mov	r3,a
+                            641 ;	genCast
+   0031 8A 82               642 	mov	dpl,r2
+   0033 8B 83               643 	mov	dph,r3
+                            644 ;	lcd_functions.c:49: x = *ptr;
+                            645 ;	genPointerGet
+                            646 ;	genFarPointerGet
+   0035 E0                  647 	movx	a,@dptr
+                            648 ;	lcd_functions.c:50: return x;
+                            649 ;	genRet
+                            650 ;	Peephole 234.a	loading dpl directly from a(ccumulator), r2 not set
+   0036 F5 82               651 	mov	dpl,a
+                            652 ;	Peephole 300	removed redundant label 00101$
+   0038 22                  653 	ret
+                            654 ;------------------------------------------------------------
+                            655 ;Allocation info for local variables in function 'CMD_write'
+                            656 ;------------------------------------------------------------
+                            657 ;cmd_input                 Allocated with name '_CMD_write_cmd_input_1_1'
+                            658 ;------------------------------------------------------------
+                            659 ;	lcd_functions.c:63: void CMD_write(unsigned char cmd_input)
+                            660 ;	-----------------------------------------
+                            661 ;	 function CMD_write
+                            662 ;	-----------------------------------------
+   0039                     663 _CMD_write:
+                            664 ;	genReceive
+   0039 E5 82               665 	mov	a,dpl
+   003B 90s00r05            666 	mov	dptr,#_CMD_write_cmd_input_1_1
+   003E F0                  667 	movx	@dptr,a
+                            668 ;	lcd_functions.c:65: delay_ms(1);
+                            669 ;	genCall
+                            670 ;	Peephole 182.b	used 16 bit load of dptr
+   003F 90 00 01            671 	mov	dptr,#0x0001
+   0042 12s00r00            672 	lcall	_delay_ms
+                            673 ;	lcd_functions.c:67: RS = 0;        // 0 FOR INSTRUCTION
+                            674 ;	genAssign
+   0045 C2 96               675 	clr	_RS
+                            676 ;	lcd_functions.c:68: RW = 0;        // 0 FOR WRITE
+                            677 ;	genAssign
+   0047 C2 97               678 	clr	_RW
+                            679 ;	lcd_functions.c:69: dataout(0x8000, cmd_input);
+                            680 ;	genAssign
+   0049 90s00r05            681 	mov	dptr,#_CMD_write_cmd_input_1_1
+   004C E0                  682 	movx	a,@dptr
+                            683 ;	genAssign
+   004D FA                  684 	mov	r2,a
+   004E 90s00r00            685 	mov	dptr,#_dataout_PARM_2
+                            686 ;	Peephole 100	removed redundant mov
+   0051 F0                  687 	movx	@dptr,a
+                            688 ;	genCall
+                            689 ;	Peephole 182.b	used 16 bit load of dptr
+   0052 90 80 00            690 	mov	dptr,#0x8000
+   0055 12s00r00            691 	lcall	_dataout
+                            692 ;	lcd_functions.c:71: delay_ms(1);
+                            693 ;	genCall
+                            694 ;	Peephole 182.b	used 16 bit load of dptr
+   0058 90 00 01            695 	mov	dptr,#0x0001
+                            696 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   005B 02s00r00            697 	ljmp	_delay_ms
+                            698 ;
+                            699 ;------------------------------------------------------------
+                            700 ;Allocation info for local variables in function 'DATA_write'
+                            701 ;------------------------------------------------------------
+                            702 ;data_input                Allocated with name '_DATA_write_data_input_1_1'
+                            703 ;------------------------------------------------------------
+                            704 ;	lcd_functions.c:74: void DATA_write(unsigned char data_input)
+                            705 ;	-----------------------------------------
+                            706 ;	 function DATA_write
+                            707 ;	-----------------------------------------
+   005E                     708 _DATA_write:
+                            709 ;	genReceive
+   005E E5 82               710 	mov	a,dpl
+   0060 90s00r06            711 	mov	dptr,#_DATA_write_data_input_1_1
+   0063 F0                  712 	movx	@dptr,a
+                            713 ;	lcd_functions.c:77: RS = 1;        // 0 FOR INSTRUCTION
+                            714 ;	genAssign
+   0064 D2 96               715 	setb	_RS
+                            716 ;	lcd_functions.c:78: RW = 0;        // 0 FOR WRITE
+                            717 ;	genAssign
+   0066 C2 97               718 	clr	_RW
+                            719 ;	lcd_functions.c:79: dataout(0x8000, data_input);
+                            720 ;	genAssign
+   0068 90s00r06            721 	mov	dptr,#_DATA_write_data_input_1_1
+   006B E0                  722 	movx	a,@dptr
+                            723 ;	genAssign
+   006C FA                  724 	mov	r2,a
+   006D 90s00r00            725 	mov	dptr,#_dataout_PARM_2
+                            726 ;	Peephole 100	removed redundant mov
+   0070 F0                  727 	movx	@dptr,a
+                            728 ;	genCall
+                            729 ;	Peephole 182.b	used 16 bit load of dptr
+   0071 90 80 00            730 	mov	dptr,#0x8000
+                            731 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   0074 02s00r00            732 	ljmp	_dataout
+                            733 ;
+                            734 ;------------------------------------------------------------
+                            735 ;Allocation info for local variables in function 'lcdputch'
+                            736 ;------------------------------------------------------------
+                            737 ;data_input                Allocated with name '_lcdputch_data_input_1_1'
+                            738 ;------------------------------------------------------------
+                            739 ;	lcd_functions.c:92: void lcdputch(unsigned char data_input)
+                            740 ;	-----------------------------------------
+                            741 ;	 function lcdputch
+                            742 ;	-----------------------------------------
+   0077                     743 _lcdputch:
+                            744 ;	genReceive
+   0077 E5 82               745 	mov	a,dpl
+   0079 90s00r07            746 	mov	dptr,#_lcdputch_data_input_1_1
+   007C F0                  747 	movx	@dptr,a
+                            748 ;	lcd_functions.c:95: lcdbusywait();
+                            749 ;	genCall
+   007D 12s02r81            750 	lcall	_lcdbusywait
+                            751 ;	lcd_functions.c:96: RS = 1;       // 1 FOR DATA
+                            752 ;	genAssign
+   0080 D2 96               753 	setb	_RS
+                            754 ;	lcd_functions.c:97: RW = 0;       // 0 FOR WRITE
+                            755 ;	genAssign
+   0082 C2 97               756 	clr	_RW
+                            757 ;	lcd_functions.c:98: dataout(0x8000, data_input);
+                            758 ;	genAssign
+   0084 90s00r07            759 	mov	dptr,#_lcdputch_data_input_1_1
+   0087 E0                  760 	movx	a,@dptr
+                            761 ;	genAssign
+   0088 FA                  762 	mov	r2,a
+   0089 90s00r00            763 	mov	dptr,#_dataout_PARM_2
+                            764 ;	Peephole 100	removed redundant mov
+   008C F0                  765 	movx	@dptr,a
+                            766 ;	genCall
+                            767 ;	Peephole 182.b	used 16 bit load of dptr
+   008D 90 80 00            768 	mov	dptr,#0x8000
+   0090 12s00r00            769 	lcall	_dataout
+                            770 ;	lcd_functions.c:100: lcdbusywait();
+                            771 ;	genCall
+                            772 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   0093 02s02r81            773 	ljmp	_lcdbusywait
+                            774 ;
+                            775 ;------------------------------------------------------------
+                            776 ;Allocation info for local variables in function 'lcdinit'
+                            777 ;------------------------------------------------------------
+                            778 ;------------------------------------------------------------
+                            779 ;	lcd_functions.c:116: void lcdinit()
+                            780 ;	-----------------------------------------
+                            781 ;	 function lcdinit
+                            782 ;	-----------------------------------------
+   0096                     783 _lcdinit:
+                            784 ;	lcd_functions.c:119: delay_ms(100);                 // Wait for more than 15 ms
+                            785 ;	genCall
+                            786 ;	Peephole 182.b	used 16 bit load of dptr
+   0096 90 00 64            787 	mov	dptr,#0x0064
+   0099 12s00r00            788 	lcall	_delay_ms
+                            789 ;	lcd_functions.c:122: RS = 0;
+                            790 ;	genAssign
+   009C C2 96               791 	clr	_RS
+                            792 ;	lcd_functions.c:123: RW = 0;
+                            793 ;	genAssign
+   009E C2 97               794 	clr	_RW
+                            795 ;	lcd_functions.c:124: CMD_write( 0x30);
+                            796 ;	genCall
+   00A0 75 82 30            797 	mov	dpl,#0x30
+   00A3 12s00r39            798 	lcall	_CMD_write
+                            799 ;	lcd_functions.c:127: delay_ms(50);                 // Wait for more than 4.1ms
+                            800 ;	genCall
+                            801 ;	Peephole 182.b	used 16 bit load of dptr
+   00A6 90 00 32            802 	mov	dptr,#0x0032
+   00A9 12s00r00            803 	lcall	_delay_ms
+                            804 ;	lcd_functions.c:130: RS = 0;
+                            805 ;	genAssign
+   00AC C2 96               806 	clr	_RS
+                            807 ;	lcd_functions.c:131: RW = 0;
+                            808 ;	genAssign
+   00AE C2 97               809 	clr	_RW
+                            810 ;	lcd_functions.c:132: CMD_write( 0x30);
+                            811 ;	genCall
+   00B0 75 82 30            812 	mov	dpl,#0x30
+   00B3 12s00r39            813 	lcall	_CMD_write
+                            814 ;	lcd_functions.c:135: delay_us(150);                // Wait for more than 100us
+                            815 ;	genCall
+                            816 ;	Peephole 182.b	used 16 bit load of dptr
+   00B6 90 00 96            817 	mov	dptr,#0x0096
+   00B9 12s00r00            818 	lcall	_delay_us
+                            819 ;	lcd_functions.c:137: lcdbusywait();                 // Replace with Polling function
+                            820 ;	genCall
+   00BC 12s02r81            821 	lcall	_lcdbusywait
+                            822 ;	lcd_functions.c:138: CMD_write( 0x38);             //Function set command
+                            823 ;	genCall
+   00BF 75 82 38            824 	mov	dpl,#0x38
+   00C2 12s00r39            825 	lcall	_CMD_write
+                            826 ;	lcd_functions.c:140: lcdbusywait();
+                            827 ;	genCall
+   00C5 12s02r81            828 	lcall	_lcdbusywait
+                            829 ;	lcd_functions.c:141: CMD_write( 0x08);             // Turn the display OFF
+                            830 ;	genCall
+   00C8 75 82 08            831 	mov	dpl,#0x08
+   00CB 12s00r39            832 	lcall	_CMD_write
+                            833 ;	lcd_functions.c:143: lcdbusywait();
+                            834 ;	genCall
+   00CE 12s02r81            835 	lcall	_lcdbusywait
+                            836 ;	lcd_functions.c:144: CMD_write( 0x0F);             // Turn the display ON
+                            837 ;	genCall
+   00D1 75 82 0F            838 	mov	dpl,#0x0F
+   00D4 12s00r39            839 	lcall	_CMD_write
+                            840 ;	lcd_functions.c:146: lcdbusywait();
+                            841 ;	genCall
+   00D7 12s02r81            842 	lcall	_lcdbusywait
+                            843 ;	lcd_functions.c:147: CMD_write( 0x06);             // Entry Mode Set command
+                            844 ;	genCall
+   00DA 75 82 06            845 	mov	dpl,#0x06
+   00DD 12s00r39            846 	lcall	_CMD_write
+                            847 ;	lcd_functions.c:149: lcdbusywait();
+                            848 ;	genCall
+   00E0 12s02r81            849 	lcall	_lcdbusywait
+                            850 ;	lcd_functions.c:150: CMD_write( 0x01);             // Clear screen and send the cursor home
+                            851 ;	genCall
+   00E3 75 82 01            852 	mov	dpl,#0x01
+                            853 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   00E6 02s00r39            854 	ljmp	_CMD_write
+                            855 ;
+                            856 ;------------------------------------------------------------
+                            857 ;Allocation info for local variables in function 'lcdputstr'
+                            858 ;------------------------------------------------------------
+                            859 ;sloc0                     Allocated with name '_lcdputstr_sloc0_1_0'
+                            860 ;y_row                     Allocated with name '_lcdputstr_PARM_2'
+                            861 ;x_column                  Allocated with name '_lcdputstr_PARM_3'
+                            862 ;string_ptr                Allocated with name '_lcdputstr_string_ptr_1_1'
+                            863 ;input_str_length          Allocated with name '_lcdputstr_input_str_length_1_1'
+                            864 ;new_y_row                 Allocated with name '_lcdputstr_new_y_row_1_1'
+                            865 ;------------------------------------------------------------
+                            866 ;	lcd_functions.c:167: void lcdputstr(char *string_ptr, int y_row, int x_column)
+                            867 ;	-----------------------------------------
+                            868 ;	 function lcdputstr
+                            869 ;	-----------------------------------------
+   00E9                     870 _lcdputstr:
+                            871 ;	genReceive
+   00E9 AA F0               872 	mov	r2,b
+   00EB AB 83               873 	mov	r3,dph
+   00ED E5 82               874 	mov	a,dpl
+   00EF 90s00r0C            875 	mov	dptr,#_lcdputstr_string_ptr_1_1
+   00F2 F0                  876 	movx	@dptr,a
+   00F3 A3                  877 	inc	dptr
+   00F4 EB                  878 	mov	a,r3
+   00F5 F0                  879 	movx	@dptr,a
+   00F6 A3                  880 	inc	dptr
+   00F7 EA                  881 	mov	a,r2
+   00F8 F0                  882 	movx	@dptr,a
+                            883 ;	lcd_functions.c:170: int new_y_row = y_row;      // This variable helps in entering new row every time my str_length + column_length >16
+                            884 ;	genAssign
+   00F9 90s00r08            885 	mov	dptr,#_lcdputstr_PARM_2
+   00FC E0                  886 	movx	a,@dptr
+   00FD FA                  887 	mov	r2,a
+   00FE A3                  888 	inc	dptr
+   00FF E0                  889 	movx	a,@dptr
+   0100 FB                  890 	mov	r3,a
+                            891 ;	lcd_functions.c:171: while(*string_ptr)
+                            892 ;	genAssign
+   0101 90s00r0A            893 	mov	dptr,#_lcdputstr_PARM_3
+   0104 E0                  894 	movx	a,@dptr
+   0105 FC                  895 	mov	r4,a
+   0106 A3                  896 	inc	dptr
+   0107 E0                  897 	movx	a,@dptr
+   0108 FD                  898 	mov	r5,a
+                            899 ;	genAssign
+                            900 ;	genAssign
+   0109 7E 00               901 	mov	r6,#0x00
+   010B 7F 00               902 	mov	r7,#0x00
+   010D                     903 00105$:
+                            904 ;	genAssign
+   010D 90s00r0C            905 	mov	dptr,#_lcdputstr_string_ptr_1_1
+   0110 E0                  906 	movx	a,@dptr
+   0111 F5*00               907 	mov	_lcdputstr_sloc0_1_0,a
+   0113 A3                  908 	inc	dptr
+   0114 E0                  909 	movx	a,@dptr
+   0115 F5*01               910 	mov	(_lcdputstr_sloc0_1_0 + 1),a
+   0117 A3                  911 	inc	dptr
+   0118 E0                  912 	movx	a,@dptr
+   0119 F5*02               913 	mov	(_lcdputstr_sloc0_1_0 + 2),a
+                            914 ;	genPointerGet
+                            915 ;	genGenPointerGet
+   011B 85*00 82            916 	mov	dpl,_lcdputstr_sloc0_1_0
+   011E 85*01 83            917 	mov	dph,(_lcdputstr_sloc0_1_0 + 1)
+   0121 85*02 F0            918 	mov	b,(_lcdputstr_sloc0_1_0 + 2)
+   0124 12s00r00            919 	lcall	__gptrget
+                            920 ;	genIfxJump
+   0127 70 01               921 	jnz	00115$
+                            922 ;	Peephole 251.a	replaced ljmp to ret with ret
+   0129 22                  923 	ret
+   012A                     924 00115$:
+                            925 ;	lcd_functions.c:173: if ((input_str_length + x_column)%16 == 0 && (input_str_length>0))
+                            926 ;	genPlus
+                            927 ;	Peephole 236.g	used r4 instead of ar4
+   012A EC                  928 	mov	a,r4
+                            929 ;	Peephole 236.a	used r6 instead of ar6
+   012B 2E                  930 	add	a,r6
+   012C F8                  931 	mov	r0,a
+                            932 ;	Peephole 236.g	used r5 instead of ar5
+   012D ED                  933 	mov	a,r5
+                            934 ;	Peephole 236.b	used r7 instead of ar7
+   012E 3F                  935 	addc	a,r7
+   012F F9                  936 	mov	r1,a
+                            937 ;	genAssign
+   0130 90s00r00            938 	mov	dptr,#__modsint_PARM_2
+   0133 74 10               939 	mov	a,#0x10
+   0135 F0                  940 	movx	@dptr,a
+   0136 E4                  941 	clr	a
+   0137 A3                  942 	inc	dptr
+   0138 F0                  943 	movx	@dptr,a
+                            944 ;	genCall
+   0139 88 82               945 	mov	dpl,r0
+   013B 89 83               946 	mov	dph,r1
+   013D C0 02               947 	push	ar2
+   013F C0 03               948 	push	ar3
+   0141 C0 04               949 	push	ar4
+   0143 C0 05               950 	push	ar5
+   0145 C0 06               951 	push	ar6
+   0147 C0 07               952 	push	ar7
+   0149 12s00r00            953 	lcall	__modsint
+   014C E5 82               954 	mov	a,dpl
+   014E 85 83 F0            955 	mov	b,dph
+   0151 D0 07               956 	pop	ar7
+   0153 D0 06               957 	pop	ar6
+   0155 D0 05               958 	pop	ar5
+   0157 D0 04               959 	pop	ar4
+   0159 D0 03               960 	pop	ar3
+   015B D0 02               961 	pop	ar2
+                            962 ;	genIfx
+   015D 45 F0               963 	orl	a,b
+                            964 ;	genIfxJump
+   015F 60 03               965 	jz	00116$
+   0161 02s02r31            966 	ljmp	00102$
+   0164                     967 00116$:
+                            968 ;	genCmpGt
+                            969 ;	genCmp
+   0164 C3                  970 	clr	c
+                            971 ;	Peephole 181	changed mov to clr
+   0165 E4                  972 	clr	a
+   0166 9E                  973 	subb	a,r6
+                            974 ;	Peephole 159	avoided xrl during execution
+   0167 74 80               975 	mov	a,#(0x00 ^ 0x80)
+   0169 8F F0               976 	mov	b,r7
+   016B 63 F0 80            977 	xrl	b,#0x80
+   016E 95 F0               978 	subb	a,b
+                            979 ;	genIfxJump
+   0170 40 03               980 	jc	00117$
+   0172 02s02r31            981 	ljmp	00102$
+   0175                     982 00117$:
+                            983 ;	lcd_functions.c:175: lcdbusywait();
+                            984 ;	genCall
+   0175 C0 02               985 	push	ar2
+   0177 C0 03               986 	push	ar3
+   0179 C0 04               987 	push	ar4
+   017B C0 05               988 	push	ar5
+   017D C0 06               989 	push	ar6
+   017F C0 07               990 	push	ar7
+   0181 12s02r81            991 	lcall	_lcdbusywait
+   0184 D0 07               992 	pop	ar7
+   0186 D0 06               993 	pop	ar6
+   0188 D0 05               994 	pop	ar5
+   018A D0 04               995 	pop	ar4
+   018C D0 03               996 	pop	ar3
+   018E D0 02               997 	pop	ar2
+                            998 ;	lcd_functions.c:176: CMD_write(0x02);
+                            999 ;	genCall
+   0190 75 82 02           1000 	mov	dpl,#0x02
+   0193 C0 02              1001 	push	ar2
+   0195 C0 03              1002 	push	ar3
+   0197 C0 04              1003 	push	ar4
+   0199 C0 05              1004 	push	ar5
+   019B C0 06              1005 	push	ar6
+   019D C0 07              1006 	push	ar7
+   019F 12s00r39           1007 	lcall	_CMD_write
+   01A2 D0 07              1008 	pop	ar7
+   01A4 D0 06              1009 	pop	ar6
+   01A6 D0 05              1010 	pop	ar5
+   01A8 D0 04              1011 	pop	ar4
+   01AA D0 03              1012 	pop	ar3
+   01AC D0 02              1013 	pop	ar2
+                           1014 ;	lcd_functions.c:177: lcdbusywait();
+                           1015 ;	genCall
+   01AE C0 02              1016 	push	ar2
+   01B0 C0 03              1017 	push	ar3
+   01B2 C0 04              1018 	push	ar4
+   01B4 C0 05              1019 	push	ar5
+   01B6 C0 06              1020 	push	ar6
+   01B8 C0 07              1021 	push	ar7
+   01BA 12s02r81           1022 	lcall	_lcdbusywait
+   01BD D0 07              1023 	pop	ar7
+   01BF D0 06              1024 	pop	ar6
+   01C1 D0 05              1025 	pop	ar5
+   01C3 D0 04              1026 	pop	ar4
+   01C5 D0 03              1027 	pop	ar3
+   01C7 D0 02              1028 	pop	ar2
+                           1029 ;	lcd_functions.c:178: new_y_row = new_y_row + 1;
+                           1030 ;	genPlus
+                           1031 ;     genPlusIncr
+   01C9 0A                 1032 	inc	r2
+   01CA BA 00 01           1033 	cjne	r2,#0x00,00118$
+   01CD 0B                 1034 	inc	r3
+   01CE                    1035 00118$:
+                           1036 ;	lcd_functions.c:179: lcdgotoxy(new_y_row, 0);
+                           1037 ;	genAssign
+   01CE 90s00r11           1038 	mov	dptr,#_lcdgotoxy_PARM_2
+   01D1 E4                 1039 	clr	a
+   01D2 F0                 1040 	movx	@dptr,a
+   01D3 A3                 1041 	inc	dptr
+   01D4 F0                 1042 	movx	@dptr,a
+                           1043 ;	genCall
+   01D5 8A 82              1044 	mov	dpl,r2
+   01D7 8B 83              1045 	mov	dph,r3
+   01D9 C0 02              1046 	push	ar2
+   01DB C0 03              1047 	push	ar3
+   01DD C0 04              1048 	push	ar4
+   01DF C0 05              1049 	push	ar5
+   01E1 C0 06              1050 	push	ar6
+   01E3 C0 07              1051 	push	ar7
+   01E5 12s02rB4           1052 	lcall	_lcdgotoxy
+   01E8 D0 07              1053 	pop	ar7
+   01EA D0 06              1054 	pop	ar6
+   01EC D0 05              1055 	pop	ar5
+   01EE D0 04              1056 	pop	ar4
+   01F0 D0 03              1057 	pop	ar3
+   01F2 D0 02              1058 	pop	ar2
+                           1059 ;	lcd_functions.c:180: lcdputch(*string_ptr++);
+                           1060 ;	genPointerGet
+                           1061 ;	genGenPointerGet
+   01F4 85*00 82           1062 	mov	dpl,_lcdputstr_sloc0_1_0
+   01F7 85*01 83           1063 	mov	dph,(_lcdputstr_sloc0_1_0 + 1)
+   01FA 85*02 F0           1064 	mov	b,(_lcdputstr_sloc0_1_0 + 2)
+   01FD 12s00r00           1065 	lcall	__gptrget
+   0200 F8                 1066 	mov	r0,a
+                           1067 ;	genPlus
+   0201 90s00r0C           1068 	mov	dptr,#_lcdputstr_string_ptr_1_1
+                           1069 ;     genPlusIncr
+   0204 74 01              1070 	mov	a,#0x01
+   0206 25*00              1071 	add	a,_lcdputstr_sloc0_1_0
+   0208 F0                 1072 	movx	@dptr,a
+                           1073 ;	Peephole 181	changed mov to clr
+   0209 E4                 1074 	clr	a
+   020A 35*01              1075 	addc	a,(_lcdputstr_sloc0_1_0 + 1)
+   020C A3                 1076 	inc	dptr
+   020D F0                 1077 	movx	@dptr,a
+   020E A3                 1078 	inc	dptr
+   020F E5*02              1079 	mov	a,(_lcdputstr_sloc0_1_0 + 2)
+   0211 F0                 1080 	movx	@dptr,a
+                           1081 ;	genCall
+   0212 88 82              1082 	mov	dpl,r0
+   0214 C0 02              1083 	push	ar2
+   0216 C0 03              1084 	push	ar3
+   0218 C0 04              1085 	push	ar4
+   021A C0 05              1086 	push	ar5
+   021C C0 06              1087 	push	ar6
+   021E C0 07              1088 	push	ar7
+   0220 12s00r77           1089 	lcall	_lcdputch
+   0223 D0 07              1090 	pop	ar7
+   0225 D0 06              1091 	pop	ar6
+   0227 D0 05              1092 	pop	ar5
+   0229 D0 04              1093 	pop	ar4
+   022B D0 03              1094 	pop	ar3
+   022D D0 02              1095 	pop	ar2
+                           1096 ;	Peephole 112.b	changed ljmp to sjmp
+   022F 80 48              1097 	sjmp	00103$
+   0231                    1098 00102$:
+                           1099 ;	lcd_functions.c:185: lcdputch(*string_ptr++);
+                           1100 ;	genIpush
+   0231 C0 04              1101 	push	ar4
+   0233 C0 05              1102 	push	ar5
+                           1103 ;	genAssign
+   0235 90s00r0C           1104 	mov	dptr,#_lcdputstr_string_ptr_1_1
+   0238 E0                 1105 	movx	a,@dptr
+   0239 F8                 1106 	mov	r0,a
+   023A A3                 1107 	inc	dptr
+   023B E0                 1108 	movx	a,@dptr
+   023C F9                 1109 	mov	r1,a
+   023D A3                 1110 	inc	dptr
+   023E E0                 1111 	movx	a,@dptr
+   023F FC                 1112 	mov	r4,a
+                           1113 ;	genPointerGet
+                           1114 ;	genGenPointerGet
+   0240 88 82              1115 	mov	dpl,r0
+   0242 89 83              1116 	mov	dph,r1
+   0244 8C F0              1117 	mov	b,r4
+   0246 12s00r00           1118 	lcall	__gptrget
+   0249 FD                 1119 	mov	r5,a
+                           1120 ;	genPlus
+   024A 90s00r0C           1121 	mov	dptr,#_lcdputstr_string_ptr_1_1
+                           1122 ;     genPlusIncr
+   024D 74 01              1123 	mov	a,#0x01
+                           1124 ;	Peephole 236.a	used r0 instead of ar0
+   024F 28                 1125 	add	a,r0
+   0250 F0                 1126 	movx	@dptr,a
+                           1127 ;	Peephole 181	changed mov to clr
+   0251 E4                 1128 	clr	a
+                           1129 ;	Peephole 236.b	used r1 instead of ar1
+   0252 39                 1130 	addc	a,r1
+   0253 A3                 1131 	inc	dptr
+   0254 F0                 1132 	movx	@dptr,a
+   0255 A3                 1133 	inc	dptr
+   0256 EC                 1134 	mov	a,r4
+   0257 F0                 1135 	movx	@dptr,a
+                           1136 ;	genCall
+   0258 8D 82              1137 	mov	dpl,r5
+   025A C0 02              1138 	push	ar2
+   025C C0 03              1139 	push	ar3
+   025E C0 04              1140 	push	ar4
+   0260 C0 05              1141 	push	ar5
+   0262 C0 06              1142 	push	ar6
+   0264 C0 07              1143 	push	ar7
+   0266 12s00r77           1144 	lcall	_lcdputch
+   0269 D0 07              1145 	pop	ar7
+   026B D0 06              1146 	pop	ar6
+   026D D0 05              1147 	pop	ar5
+   026F D0 04              1148 	pop	ar4
+   0271 D0 03              1149 	pop	ar3
+   0273 D0 02              1150 	pop	ar2
+                           1151 ;	lcd_functions.c:187: input_str_length++;
+                           1152 ;	genIpop
+   0275 D0 05              1153 	pop	ar5
+   0277 D0 04              1154 	pop	ar4
+                           1155 ;	lcd_functions.c:185: lcdputch(*string_ptr++);
+   0279                    1156 00103$:
+                           1157 ;	lcd_functions.c:187: input_str_length++;
+                           1158 ;	genPlus
+                           1159 ;     genPlusIncr
+   0279 0E                 1160 	inc	r6
+   027A BE 00 01           1161 	cjne	r6,#0x00,00119$
+   027D 0F                 1162 	inc	r7
+   027E                    1163 00119$:
+   027E 02s01r0D           1164 	ljmp	00105$
+                           1165 ;	Peephole 259.b	removed redundant label 00108$ and ret
+                           1166 ;
+                           1167 ;------------------------------------------------------------
+                           1168 ;Allocation info for local variables in function 'lcdbusywait'
+                           1169 ;------------------------------------------------------------
+                           1170 ;------------------------------------------------------------
+                           1171 ;	lcd_functions.c:199: void lcdbusywait()
+                           1172 ;	-----------------------------------------
+                           1173 ;	 function lcdbusywait
+                           1174 ;	-----------------------------------------
+   0281                    1175 _lcdbusywait:
+                           1176 ;	lcd_functions.c:201: RS = 0;                      // 0 FOR INSTRUCTION
+                           1177 ;	genAssign
+   0281 C2 96              1178 	clr	_RS
+                           1179 ;	lcd_functions.c:202: RW = 1;                      // READ FROM LCD
+                           1180 ;	genAssign
+   0283 D2 97              1181 	setb	_RW
+                           1182 ;	lcd_functions.c:203: while(1)
+   0285                    1183 00104$:
+                           1184 ;	genIfx
+                           1185 ;	genIfxJump
+                           1186 ;	Peephole 108.d	removed ljmp by inverse jump logic
+   0285 30 97 FD           1187 	jnb	_P1_7,00104$
+                           1188 ;	Peephole 300	removed redundant label 00109$
+                           1189 ;	lcd_functions.c:205: break;
+                           1190 ;	Peephole 300	removed redundant label 00106$
+   0288 22                 1191 	ret
+                           1192 ;------------------------------------------------------------
+                           1193 ;Allocation info for local variables in function 'lcdgotoaddr'
+                           1194 ;------------------------------------------------------------
+                           1195 ;address                   Allocated with name '_lcdgotoaddr_address_1_1'
+                           1196 ;------------------------------------------------------------
+                           1197 ;	lcd_functions.c:228: void lcdgotoaddr(unsigned int address)
+                           1198 ;	-----------------------------------------
+                           1199 ;	 function lcdgotoaddr
+                           1200 ;	-----------------------------------------
+   0289                    1201 _lcdgotoaddr:
+                           1202 ;	genReceive
+   0289 AA 83              1203 	mov	r2,dph
+   028B E5 82              1204 	mov	a,dpl
+   028D 90s00r0F           1205 	mov	dptr,#_lcdgotoaddr_address_1_1
+   0290 F0                 1206 	movx	@dptr,a
+   0291 A3                 1207 	inc	dptr
+   0292 EA                 1208 	mov	a,r2
+   0293 F0                 1209 	movx	@dptr,a
+                           1210 ;	lcd_functions.c:230: lcdbusywait();
+                           1211 ;	genCall
+   0294 12s02r81           1212 	lcall	_lcdbusywait
+                           1213 ;	lcd_functions.c:231: CMD_write(address+0x80);
+                           1214 ;	genAssign
+   0297 90s00r0F           1215 	mov	dptr,#_lcdgotoaddr_address_1_1
+   029A E0                 1216 	movx	a,@dptr
+   029B FA                 1217 	mov	r2,a
+   029C A3                 1218 	inc	dptr
+   029D E0                 1219 	movx	a,@dptr
+   029E FB                 1220 	mov	r3,a
+                           1221 ;	genCast
+                           1222 ;	genPlus
+                           1223 ;     genPlusIncr
+   029F 74 80              1224 	mov	a,#0x80
+                           1225 ;	Peephole 236.a	used r2 instead of ar2
+   02A1 2A                 1226 	add	a,r2
+                           1227 ;	genCall
+   02A2 FA                 1228 	mov	r2,a
+                           1229 ;	Peephole 244.c	loading dpl from a instead of r2
+   02A3 F5 82              1230 	mov	dpl,a
+   02A5 12s00r39           1231 	lcall	_CMD_write
+                           1232 ;	lcd_functions.c:232: lcdbusywait();
+                           1233 ;	genCall
+                           1234 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   02A8 02s02r81           1235 	ljmp	_lcdbusywait
+                           1236 ;
+                           1237 ;------------------------------------------------------------
+                           1238 ;Allocation info for local variables in function 'lcdclear'
+                           1239 ;------------------------------------------------------------
+                           1240 ;------------------------------------------------------------
+                           1241 ;	lcd_functions.c:244: void lcdclear()
+                           1242 ;	-----------------------------------------
+                           1243 ;	 function lcdclear
+                           1244 ;	-----------------------------------------
+   02AB                    1245 _lcdclear:
+                           1246 ;	lcd_functions.c:246: lcdbusywait();
+                           1247 ;	genCall
+   02AB 12s02r81           1248 	lcall	_lcdbusywait
+                           1249 ;	lcd_functions.c:247: CMD_write(0x01);	// Clear the LCD and go to First line First Position
+                           1250 ;	genCall
+   02AE 75 82 01           1251 	mov	dpl,#0x01
+                           1252 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   02B1 02s00r39           1253 	ljmp	_CMD_write
+                           1254 ;
+                           1255 ;------------------------------------------------------------
+                           1256 ;Allocation info for local variables in function 'lcdgotoxy'
+                           1257 ;------------------------------------------------------------
+                           1258 ;column                    Allocated with name '_lcdgotoxy_PARM_2'
+                           1259 ;row                       Allocated with name '_lcdgotoxy_row_1_1'
+                           1260 ;------------------------------------------------------------
+                           1261 ;	lcd_functions.c:259: void lcdgotoxy(int row, int column)
+                           1262 ;	-----------------------------------------
+                           1263 ;	 function lcdgotoxy
+                           1264 ;	-----------------------------------------
+   02B4                    1265 _lcdgotoxy:
+                           1266 ;	genReceive
+   02B4 AA 83              1267 	mov	r2,dph
+   02B6 E5 82              1268 	mov	a,dpl
+   02B8 90s00r13           1269 	mov	dptr,#_lcdgotoxy_row_1_1
+   02BB F0                 1270 	movx	@dptr,a
+   02BC A3                 1271 	inc	dptr
+   02BD EA                 1272 	mov	a,r2
+   02BE F0                 1273 	movx	@dptr,a
+                           1274 ;	lcd_functions.c:262: switch(row)
+                           1275 ;	genAssign
+   02BF 90s00r13           1276 	mov	dptr,#_lcdgotoxy_row_1_1
+   02C2 E0                 1277 	movx	a,@dptr
+   02C3 FA                 1278 	mov	r2,a
+   02C4 A3                 1279 	inc	dptr
+   02C5 E0                 1280 	movx	a,@dptr
+   02C6 FB                 1281 	mov	r3,a
+                           1282 ;	genCmpEq
+                           1283 ;	gencjneshort
+   02C7 BA 00 05           1284 	cjne	r2,#0x00,00112$
+   02CA BB 00 02           1285 	cjne	r3,#0x00,00112$
+                           1286 ;	Peephole 112.b	changed ljmp to sjmp
+   02CD 80 18              1287 	sjmp	00101$
+   02CF                    1288 00112$:
+                           1289 ;	genCmpEq
+                           1290 ;	gencjneshort
+   02CF BA 01 05           1291 	cjne	r2,#0x01,00113$
+   02D2 BB 00 02           1292 	cjne	r3,#0x00,00113$
+                           1293 ;	Peephole 112.b	changed ljmp to sjmp
+   02D5 80 1F              1294 	sjmp	00102$
+   02D7                    1295 00113$:
+                           1296 ;	genCmpEq
+                           1297 ;	gencjneshort
+   02D7 BA 02 05           1298 	cjne	r2,#0x02,00114$
+   02DA BB 00 02           1299 	cjne	r3,#0x00,00114$
+                           1300 ;	Peephole 112.b	changed ljmp to sjmp
+   02DD 80 2D              1301 	sjmp	00103$
+   02DF                    1302 00114$:
+                           1303 ;	genCmpEq
+                           1304 ;	gencjneshort
+                           1305 ;	Peephole 112.b	changed ljmp to sjmp
+                           1306 ;	lcd_functions.c:264: case 0:
+                           1307 ;	Peephole 112.b	changed ljmp to sjmp
+                           1308 ;	Peephole 198.a	optimized misc jump sequence
+   02DF BA 03 56           1309 	cjne	r2,#0x03,00106$
+   02E2 BB 00 53           1310 	cjne	r3,#0x00,00106$
+   02E5 80 3B              1311 	sjmp	00104$
+                           1312 ;	Peephole 300	removed redundant label 00115$
+   02E7                    1313 00101$:
+                           1314 ;	lcd_functions.c:265: lcdgotoaddr(column);
+                           1315 ;	genAssign
+   02E7 90s00r11           1316 	mov	dptr,#_lcdgotoxy_PARM_2
+   02EA E0                 1317 	movx	a,@dptr
+   02EB FA                 1318 	mov	r2,a
+   02EC A3                 1319 	inc	dptr
+   02ED E0                 1320 	movx	a,@dptr
+   02EE FB                 1321 	mov	r3,a
+                           1322 ;	genCall
+   02EF 8A 82              1323 	mov	dpl,r2
+   02F1 8B 83              1324 	mov	dph,r3
+                           1325 ;	lcd_functions.c:266: break;
+                           1326 ;	lcd_functions.c:267: case 1:
+                           1327 ;	Peephole 112.b	changed ljmp to sjmp
+                           1328 ;	Peephole 251.b	replaced sjmp to ret with ret
+                           1329 ;	Peephole 253.a	replaced lcall/ret with ljmp
+   02F3 02s02r89           1330 	ljmp	_lcdgotoaddr
+   02F6                    1331 00102$:
+                           1332 ;	lcd_functions.c:268: lcdgotoaddr(column+0x40);
+                           1333 ;	genAssign
+   02F6 90s00r11           1334 	mov	dptr,#_lcdgotoxy_PARM_2
+   02F9 E0                 1335 	movx	a,@dptr
+   02FA FA                 1336 	mov	r2,a
+   02FB A3                 1337 	inc	dptr
+   02FC E0                 1338 	movx	a,@dptr
+   02FD FB                 1339 	mov	r3,a
+                           1340 ;	genPlus
+                           1341 ;     genPlusIncr
+   02FE 74 40              1342 	mov	a,#0x40
+                           1343 ;	Peephole 236.a	used r2 instead of ar2
+   0300 2A                 1344 	add	a,r2
+   0301 FA                 1345 	mov	r2,a
+                           1346 ;	Peephole 181	changed mov to clr
+   0302 E4                 1347 	clr	a
+                           1348 ;	Peephole 236.b	used r3 instead of ar3
+   0303 3B                 1349 	addc	a,r3
+   0304 FB                 1350 	mov	r3,a
+                           1351 ;	genCall
+   0305 8A 82              1352 	mov	dpl,r2
+   0307 8B 83              1353 	mov	dph,r3
+                           1354 ;	lcd_functions.c:269: break;
+                           1355 ;	lcd_functions.c:270: case 2:
+                           1356 ;	Peephole 112.b	changed ljmp to sjmp
+                           1357 ;	Peephole 251.b	replaced sjmp to ret with ret
+                           1358 ;	Peephole 253.a	replaced lcall/ret with ljmp
+   0309 02s02r89           1359 	ljmp	_lcdgotoaddr
+   030C                    1360 00103$:
+                           1361 ;	lcd_functions.c:271: lcdgotoaddr(column+0x10);
+                           1362 ;	genAssign
+   030C 90s00r11           1363 	mov	dptr,#_lcdgotoxy_PARM_2
+   030F E0                 1364 	movx	a,@dptr
+   0310 FA                 1365 	mov	r2,a
+   0311 A3                 1366 	inc	dptr
+   0312 E0                 1367 	movx	a,@dptr
+   0313 FB                 1368 	mov	r3,a
+                           1369 ;	genPlus
+                           1370 ;     genPlusIncr
+   0314 74 10              1371 	mov	a,#0x10
+                           1372 ;	Peephole 236.a	used r2 instead of ar2
+   0316 2A                 1373 	add	a,r2
+   0317 FA                 1374 	mov	r2,a
+                           1375 ;	Peephole 181	changed mov to clr
+   0318 E4                 1376 	clr	a
+                           1377 ;	Peephole 236.b	used r3 instead of ar3
+   0319 3B                 1378 	addc	a,r3
+   031A FB                 1379 	mov	r3,a
+                           1380 ;	genCall
+   031B 8A 82              1381 	mov	dpl,r2
+   031D 8B 83              1382 	mov	dph,r3
+                           1383 ;	lcd_functions.c:272: break;
+                           1384 ;	lcd_functions.c:273: case 3:
+                           1385 ;	Peephole 112.b	changed ljmp to sjmp
+                           1386 ;	Peephole 251.b	replaced sjmp to ret with ret
+                           1387 ;	Peephole 253.a	replaced lcall/ret with ljmp
+   031F 02s02r89           1388 	ljmp	_lcdgotoaddr
+   0322                    1389 00104$:
+                           1390 ;	lcd_functions.c:274: lcdgotoaddr(column+0x50);
+                           1391 ;	genAssign
+   0322 90s00r11           1392 	mov	dptr,#_lcdgotoxy_PARM_2
+   0325 E0                 1393 	movx	a,@dptr
+   0326 FA                 1394 	mov	r2,a
+   0327 A3                 1395 	inc	dptr
+   0328 E0                 1396 	movx	a,@dptr
+   0329 FB                 1397 	mov	r3,a
+                           1398 ;	genPlus
+                           1399 ;     genPlusIncr
+   032A 74 50              1400 	mov	a,#0x50
+                           1401 ;	Peephole 236.a	used r2 instead of ar2
+   032C 2A                 1402 	add	a,r2
+   032D FA                 1403 	mov	r2,a
+                           1404 ;	Peephole 181	changed mov to clr
+   032E E4                 1405 	clr	a
+                           1406 ;	Peephole 236.b	used r3 instead of ar3
+   032F 3B                 1407 	addc	a,r3
+   0330 FB                 1408 	mov	r3,a
+                           1409 ;	genCall
+   0331 8A 82              1410 	mov	dpl,r2
+   0333 8B 83              1411 	mov	dph,r3
+                           1412 ;	lcd_functions.c:276: }
+                           1413 ;	Peephole 253.c	replaced lcall with ljmp
+   0335 02s02r89           1414 	ljmp	_lcdgotoaddr
+   0338                    1415 00106$:
+   0338 22                 1416 	ret
+                           1417 ;------------------------------------------------------------
+                           1418 ;Allocation info for local variables in function 'checkValidrow'
+                           1419 ;------------------------------------------------------------
+                           1420 ;row                       Allocated with name '_checkValidrow_row_1_1'
+                           1421 ;------------------------------------------------------------
+                           1422 ;	lcd_functions.c:289: int checkValidrow(int row)
+                           1423 ;	-----------------------------------------
+                           1424 ;	 function checkValidrow
+                           1425 ;	-----------------------------------------
+   0339                    1426 _checkValidrow:
+                           1427 ;	genReceive
+   0339 AA 83              1428 	mov	r2,dph
+   033B E5 82              1429 	mov	a,dpl
+   033D 90s00r15           1430 	mov	dptr,#_checkValidrow_row_1_1
+   0340 F0                 1431 	movx	@dptr,a
+   0341 A3                 1432 	inc	dptr
+   0342 EA                 1433 	mov	a,r2
+   0343 F0                 1434 	movx	@dptr,a
+                           1435 ;	lcd_functions.c:291: if (row>3)
+                           1436 ;	genAssign
+   0344 90s00r15           1437 	mov	dptr,#_checkValidrow_row_1_1
+   0347 E0                 1438 	movx	a,@dptr
+   0348 FA                 1439 	mov	r2,a
+   0349 A3                 1440 	inc	dptr
+   034A E0                 1441 	movx	a,@dptr
+   034B FB                 1442 	mov	r3,a
+                           1443 ;	genCmpGt
+                           1444 ;	genCmp
+   034C C3                 1445 	clr	c
+   034D 74 03              1446 	mov	a,#0x03
+   034F 9A                 1447 	subb	a,r2
+                           1448 ;	Peephole 159	avoided xrl during execution
+   0350 74 80              1449 	mov	a,#(0x00 ^ 0x80)
+   0352 8B F0              1450 	mov	b,r3
+   0354 63 F0 80           1451 	xrl	b,#0x80
+   0357 95 F0              1452 	subb	a,b
+                           1453 ;	genIfxJump
+                           1454 ;	Peephole 108.a	removed ljmp by inverse jump logic
+   0359 50 16              1455 	jnc	00102$
+                           1456 ;	Peephole 300	removed redundant label 00107$
+                           1457 ;	lcd_functions.c:293: putstr("Invalid y_Row Entered\n\r");
+                           1458 ;	genCall
+                           1459 ;	Peephole 182.a	used 16 bit load of DPTR
+   035B 90s00r00           1460 	mov	dptr,#__str_0
+   035E 75 F0 80           1461 	mov	b,#0x80
+   0361 12s00r00           1462 	lcall	_putstr
+                           1463 ;	lcd_functions.c:294: putstr("Re-enter y_Row length\n\r");
+                           1464 ;	genCall
+                           1465 ;	Peephole 182.a	used 16 bit load of DPTR
+   0364 90s00r18           1466 	mov	dptr,#__str_1
+   0367 75 F0 80           1467 	mov	b,#0x80
+   036A 12s00r00           1468 	lcall	_putstr
+                           1469 ;	lcd_functions.c:295: return ROW_FAIL;
+                           1470 ;	genRet
+                           1471 ;	Peephole 182.b	used 16 bit load of dptr
+   036D 90 00 00           1472 	mov	dptr,#0x0000
+                           1473 ;	Peephole 112.b	changed ljmp to sjmp
+                           1474 ;	lcd_functions.c:299: return ROW_PASS;
+                           1475 ;	genRet
+                           1476 ;	Peephole 182.b	used 16 bit load of dptr
+                           1477 ;	Peephole 237.a	removed sjmp to ret
+   0370 22                 1478 	ret
+   0371                    1479 00102$:
+   0371 90 00 01           1480 	mov	dptr,#0x0001
+                           1481 ;	Peephole 300	removed redundant label 00104$
+   0374 22                 1482 	ret
+                           1483 ;------------------------------------------------------------
+                           1484 ;Allocation info for local variables in function 'checkValidcolumn'
+                           1485 ;------------------------------------------------------------
+                           1486 ;column                    Allocated with name '_checkValidcolumn_column_1_1'
+                           1487 ;------------------------------------------------------------
+                           1488 ;	lcd_functions.c:313: int checkValidcolumn(int column)
+                           1489 ;	-----------------------------------------
+                           1490 ;	 function checkValidcolumn
+                           1491 ;	-----------------------------------------
+   0375                    1492 _checkValidcolumn:
+                           1493 ;	genReceive
+   0375 AA 83              1494 	mov	r2,dph
+   0377 E5 82              1495 	mov	a,dpl
+   0379 90s00r17           1496 	mov	dptr,#_checkValidcolumn_column_1_1
+   037C F0                 1497 	movx	@dptr,a
+   037D A3                 1498 	inc	dptr
+   037E EA                 1499 	mov	a,r2
+   037F F0                 1500 	movx	@dptr,a
+                           1501 ;	lcd_functions.c:315: if (column>15)
+                           1502 ;	genAssign
+   0380 90s00r17           1503 	mov	dptr,#_checkValidcolumn_column_1_1
+   0383 E0                 1504 	movx	a,@dptr
+   0384 FA                 1505 	mov	r2,a
+   0385 A3                 1506 	inc	dptr
+   0386 E0                 1507 	movx	a,@dptr
+   0387 FB                 1508 	mov	r3,a
+                           1509 ;	genCmpGt
+                           1510 ;	genCmp
+   0388 C3                 1511 	clr	c
+   0389 74 0F              1512 	mov	a,#0x0F
+   038B 9A                 1513 	subb	a,r2
+                           1514 ;	Peephole 159	avoided xrl during execution
+   038C 74 80              1515 	mov	a,#(0x00 ^ 0x80)
+   038E 8B F0              1516 	mov	b,r3
+   0390 63 F0 80           1517 	xrl	b,#0x80
+   0393 95 F0              1518 	subb	a,b
+                           1519 ;	genIfxJump
+                           1520 ;	Peephole 108.a	removed ljmp by inverse jump logic
+   0395 50 16              1521 	jnc	00102$
+                           1522 ;	Peephole 300	removed redundant label 00107$
+                           1523 ;	lcd_functions.c:317: putstr("Invalid x_column Entered\n\r");
+                           1524 ;	genCall
+                           1525 ;	Peephole 182.a	used 16 bit load of DPTR
+   0397 90s00r30           1526 	mov	dptr,#__str_2
+   039A 75 F0 80           1527 	mov	b,#0x80
+   039D 12s00r00           1528 	lcall	_putstr
+                           1529 ;	lcd_functions.c:318: putstr("Re-enter x_column length\n\r");
+                           1530 ;	genCall
+                           1531 ;	Peephole 182.a	used 16 bit load of DPTR
+   03A0 90s00r4B           1532 	mov	dptr,#__str_3
+   03A3 75 F0 80           1533 	mov	b,#0x80
+   03A6 12s00r00           1534 	lcall	_putstr
+                           1535 ;	lcd_functions.c:319: return COLUMN_FAIL;
+                           1536 ;	genRet
+                           1537 ;	Peephole 182.b	used 16 bit load of dptr
+   03A9 90 00 00           1538 	mov	dptr,#0x0000
+                           1539 ;	Peephole 112.b	changed ljmp to sjmp
+                           1540 ;	lcd_functions.c:323: return COLUMN_PASS;
+                           1541 ;	genRet
+                           1542 ;	Peephole 182.b	used 16 bit load of dptr
+                           1543 ;	Peephole 237.a	removed sjmp to ret
+   03AC 22                 1544 	ret
+   03AD                    1545 00102$:
+   03AD 90 00 01           1546 	mov	dptr,#0x0001
+                           1547 ;	Peephole 300	removed redundant label 00104$
+   03B0 22                 1548 	ret
+                           1549 ;------------------------------------------------------------
+                           1550 ;Allocation info for local variables in function 'ramDump'
+                           1551 ;------------------------------------------------------------
+                           1552 ;sloc0                     Allocated with name '_ramDump_sloc0_1_0'
+                           1553 ;sloc1                     Allocated with name '_ramDump_sloc1_1_0'
+                           1554 ;sloc2                     Allocated with name '_ramDump_sloc2_1_0'
+                           1555 ;limit                     Allocated with name '_ramDump_PARM_2'
+                           1556 ;condition                 Allocated with name '_ramDump_PARM_3'
+                           1557 ;command                   Allocated with name '_ramDump_command_1_1'
+                           1558 ;out                       Allocated with name '_ramDump_out_1_1'
+                           1559 ;ack                       Allocated with name '_ramDump_ack_1_1'
+                           1560 ;i                         Allocated with name '_ramDump_i_1_1'
+                           1561 ;addressOffset             Allocated with name '_ramDump_addressOffset_1_1'
+                           1562 ;------------------------------------------------------------
+                           1563 ;	lcd_functions.c:328: unsigned char ramDump(unsigned char command, unsigned char limit, unsigned char condition) __critical
+                           1564 ;	-----------------------------------------
+                           1565 ;	 function ramDump
+                           1566 ;	-----------------------------------------
+   03B1                    1567 _ramDump:
+   03B1 D3                 1568 	setb	c
+   03B2 10 AF 01           1569 	jbc	ea,00127$
+   03B5 C3                 1570 	clr	c
+   03B6                    1571 00127$:
+   03B6 C0 D0              1572 	push	psw
+                           1573 ;	genReceive
+   03B8 E5 82              1574 	mov	a,dpl
+   03BA 90s00r1B           1575 	mov	dptr,#_ramDump_command_1_1
+   03BD F0                 1576 	movx	@dptr,a
+                           1577 ;	lcd_functions.c:335: for (ack = 0; ack<limit; ack ++)
+                           1578 ;	genAssign
+   03BE 90s00r1B           1579 	mov	dptr,#_ramDump_command_1_1
+   03C1 E0                 1580 	movx	a,@dptr
+   03C2 FA                 1581 	mov	r2,a
+                           1582 ;	genCmpEq
+                           1583 ;	gencjne
+                           1584 ;	gencjneshort
+                           1585 ;	Peephole 241.d	optimized compare
+   03C3 E4                 1586 	clr	a
+   03C4 BA 40 01           1587 	cjne	r2,#0x40,00128$
+   03C7 04                 1588 	inc	a
+   03C8                    1589 00128$:
+                           1590 ;	Peephole 300	removed redundant label 00129$
+   03C8 FB                 1591 	mov	r3,a
+                           1592 ;	genAssign
+   03C9 8A*03              1593 	mov	_ramDump_sloc0_1_0,r2
+                           1594 ;	genAssign
+   03CB 90s00r1A           1595 	mov	dptr,#_ramDump_PARM_3
+   03CE E0                 1596 	movx	a,@dptr
+   03CF FD                 1597 	mov	r5,a
+                           1598 ;	genAssign
+   03D0 90s00r19           1599 	mov	dptr,#_ramDump_PARM_2
+   03D3 E0                 1600 	movx	a,@dptr
+   03D4 F5*05              1601 	mov	_ramDump_sloc2_1_0,a
+                           1602 ;	genAssign
+   03D6 7F 00              1603 	mov	r7,#0x00
+                           1604 ;	genAssign
+   03D8 78 00              1605 	mov	r0,#0x00
+   03DA                    1606 00114$:
+                           1607 ;	genCmpLt
+                           1608 ;	genCmp
+   03DA C3                 1609 	clr	c
+   03DB E8                 1610 	mov	a,r0
+   03DC 95*05              1611 	subb	a,_ramDump_sloc2_1_0
+                           1612 ;	genIfxJump
+   03DE 40 03              1613 	jc	00130$
+   03E0 02s05r97           1614 	ljmp	00117$
+   03E3                    1615 00130$:
+                           1616 ;	lcd_functions.c:337: if (command == 0x40)
+                           1617 ;	genIfx
+   03E3 EB                 1618 	mov	a,r3
+                           1619 ;	genIfxJump
+                           1620 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   03E4 60 1F              1621 	jz	00107$
+                           1622 ;	Peephole 300	removed redundant label 00131$
+                           1623 ;	lcd_functions.c:339: CMD_write(command+ack);
+                           1624 ;	genPlus
+                           1625 ;	Peephole 236.g	used r0 instead of ar0
+   03E6 E8                 1626 	mov	a,r0
+                           1627 ;	Peephole 236.a	used r2 instead of ar2
+   03E7 2A                 1628 	add	a,r2
+                           1629 ;	genCall
+   03E8 F9                 1630 	mov	r1,a
+                           1631 ;	Peephole 244.c	loading dpl from a instead of r1
+   03E9 F5 82              1632 	mov	dpl,a
+   03EB C0 02              1633 	push	ar2
+   03ED C0 03              1634 	push	ar3
+   03EF C0 05              1635 	push	ar5
+   03F1 C0 07              1636 	push	ar7
+   03F3 C0 00              1637 	push	ar0
+   03F5 12s00r39           1638 	lcall	_CMD_write
+   03F8 D0 00              1639 	pop	ar0
+   03FA D0 07              1640 	pop	ar7
+   03FC D0 05              1641 	pop	ar5
+   03FE D0 03              1642 	pop	ar3
+   0400 D0 02              1643 	pop	ar2
+   0402 02s04rA3           1644 	ljmp	00108$
+   0405                    1645 00107$:
+                           1646 ;	lcd_functions.c:347: switch(ack/16)
+                           1647 ;	genRightShift
+                           1648 ;	genRightShiftLiteral
+                           1649 ;	genrshOne
+   0405 E8                 1650 	mov	a,r0
+   0406 C4                 1651 	swap	a
+   0407 54 0F              1652 	anl	a,#0x0f
+                           1653 ;	genCmpGt
+                           1654 ;	genCmp
+                           1655 ;	genIfxJump
+                           1656 ;	Peephole 132.b	optimized genCmpGt by inverse logic (acc differs)
+   0409 F9                 1657 	mov  r1,a
+                           1658 ;	Peephole 177.a	removed redundant mov
+   040A 24 FC              1659 	add	a,#0xff - 0x03
+   040C 50 03              1660 	jnc	00132$
+   040E 02s04rA3           1661 	ljmp	00108$
+   0411                    1662 00132$:
+                           1663 ;	genJumpTab
+   0411 E9                 1664 	mov	a,r1
+                           1665 ;	Peephole 254	optimized left shift
+   0412 29                 1666 	add	a,r1
+   0413 29                 1667 	add	a,r1
+   0414 90s04r18           1668 	mov	dptr,#00133$
+   0417 73                 1669 	jmp	@a+dptr
+   0418                    1670 00133$:
+   0418 02s04r24           1671 	ljmp	00101$
+   041B 02s04r42           1672 	ljmp	00102$
+   041E 02s04r63           1673 	ljmp	00103$
+   0421 02s04r84           1674 	ljmp	00104$
+                           1675 ;	lcd_functions.c:349: case 0:
+   0424                    1676 00101$:
+                           1677 ;	lcd_functions.c:351: CMD_write(command + ack);
+                           1678 ;	genPlus
+                           1679 ;	Peephole 236.g	used r0 instead of ar0
+   0424 E8                 1680 	mov	a,r0
+                           1681 ;	Peephole 236.a	used r2 instead of ar2
+   0425 2A                 1682 	add	a,r2
+                           1683 ;	genCall
+   0426 F9                 1684 	mov	r1,a
+                           1685 ;	Peephole 244.c	loading dpl from a instead of r1
+   0427 F5 82              1686 	mov	dpl,a
+   0429 C0 02              1687 	push	ar2
+   042B C0 03              1688 	push	ar3
+   042D C0 05              1689 	push	ar5
+   042F C0 07              1690 	push	ar7
+   0431 C0 00              1691 	push	ar0
+   0433 12s00r39           1692 	lcall	_CMD_write
+   0436 D0 00              1693 	pop	ar0
+   0438 D0 07              1694 	pop	ar7
+   043A D0 05              1695 	pop	ar5
+   043C D0 03              1696 	pop	ar3
+   043E D0 02              1697 	pop	ar2
+                           1698 ;	lcd_functions.c:353: break;
+                           1699 ;	lcd_functions.c:354: case 1:
+                           1700 ;	Peephole 112.b	changed ljmp to sjmp
+   0440 80 61              1701 	sjmp	00108$
+   0442                    1702 00102$:
+                           1703 ;	lcd_functions.c:355: CMD_write(0xC0 + (ack%16));
+                           1704 ;	genAnd
+   0442 74 0F              1705 	mov	a,#0x0F
+   0444 58                 1706 	anl	a,r0
+                           1707 ;	genPlus
+                           1708 ;     genPlusIncr
+   0445 24 C0              1709 	add	a,#0xC0
+                           1710 ;	genCall
+   0447 F9                 1711 	mov	r1,a
+                           1712 ;	Peephole 244.c	loading dpl from a instead of r1
+   0448 F5 82              1713 	mov	dpl,a
+   044A C0 02              1714 	push	ar2
+   044C C0 03              1715 	push	ar3
+   044E C0 05              1716 	push	ar5
+   0450 C0 07              1717 	push	ar7
+   0452 C0 00              1718 	push	ar0
+   0454 12s00r39           1719 	lcall	_CMD_write
+   0457 D0 00              1720 	pop	ar0
+   0459 D0 07              1721 	pop	ar7
+   045B D0 05              1722 	pop	ar5
+   045D D0 03              1723 	pop	ar3
+   045F D0 02              1724 	pop	ar2
+                           1725 ;	lcd_functions.c:357: break;
+                           1726 ;	lcd_functions.c:358: case 2:
+                           1727 ;	Peephole 112.b	changed ljmp to sjmp
+   0461 80 40              1728 	sjmp	00108$
+   0463                    1729 00103$:
+                           1730 ;	lcd_functions.c:359: CMD_write(0x90+ (ack%16));
+                           1731 ;	genAnd
+   0463 74 0F              1732 	mov	a,#0x0F
+   0465 58                 1733 	anl	a,r0
+                           1734 ;	genPlus
+                           1735 ;     genPlusIncr
+   0466 24 90              1736 	add	a,#0x90
+                           1737 ;	genCall
+   0468 F9                 1738 	mov	r1,a
+                           1739 ;	Peephole 244.c	loading dpl from a instead of r1
+   0469 F5 82              1740 	mov	dpl,a
+   046B C0 02              1741 	push	ar2
+   046D C0 03              1742 	push	ar3
+   046F C0 05              1743 	push	ar5
+   0471 C0 07              1744 	push	ar7
+   0473 C0 00              1745 	push	ar0
+   0475 12s00r39           1746 	lcall	_CMD_write
+   0478 D0 00              1747 	pop	ar0
+   047A D0 07              1748 	pop	ar7
+   047C D0 05              1749 	pop	ar5
+   047E D0 03              1750 	pop	ar3
+   0480 D0 02              1751 	pop	ar2
+                           1752 ;	lcd_functions.c:361: break;
+                           1753 ;	lcd_functions.c:362: case 3:
+                           1754 ;	Peephole 112.b	changed ljmp to sjmp
+   0482 80 1F              1755 	sjmp	00108$
+   0484                    1756 00104$:
+                           1757 ;	lcd_functions.c:363: CMD_write(0xD0+ (ack%16));
+                           1758 ;	genAnd
+   0484 74 0F              1759 	mov	a,#0x0F
+   0486 58                 1760 	anl	a,r0
+                           1761 ;	genPlus
+                           1762 ;     genPlusIncr
+   0487 24 D0              1763 	add	a,#0xD0
+                           1764 ;	genCall
+   0489 F9                 1765 	mov	r1,a
+                           1766 ;	Peephole 244.c	loading dpl from a instead of r1
+   048A F5 82              1767 	mov	dpl,a
+   048C C0 02              1768 	push	ar2
+   048E C0 03              1769 	push	ar3
+   0490 C0 05              1770 	push	ar5
+   0492 C0 07              1771 	push	ar7
+   0494 C0 00              1772 	push	ar0
+   0496 12s00r39           1773 	lcall	_CMD_write
+   0499 D0 00              1774 	pop	ar0
+   049B D0 07              1775 	pop	ar7
+   049D D0 05              1776 	pop	ar5
+   049F D0 03              1777 	pop	ar3
+   04A1 D0 02              1778 	pop	ar2
+                           1779 ;	lcd_functions.c:366: }
+   04A3                    1780 00108$:
+                           1781 ;	lcd_functions.c:369: RS = 1;
+                           1782 ;	genAssign
+   04A3 D2 96              1783 	setb	_RS
+                           1784 ;	lcd_functions.c:370: RW = 1;
+                           1785 ;	genAssign
+   04A5 D2 97              1786 	setb	_RW
+                           1787 ;	lcd_functions.c:372: out = Datain(0x8000);
+                           1788 ;	genCall
+                           1789 ;	Peephole 182.b	used 16 bit load of dptr
+   04A7 90 80 00           1790 	mov	dptr,#0x8000
+   04AA C0 02              1791 	push	ar2
+   04AC C0 03              1792 	push	ar3
+   04AE C0 05              1793 	push	ar5
+   04B0 C0 07              1794 	push	ar7
+   04B2 C0 00              1795 	push	ar0
+   04B4 12s00r1E           1796 	lcall	_Datain
+   04B7 85 82*04           1797 	mov	_ramDump_sloc1_1_0,dpl
+   04BA D0 00              1798 	pop	ar0
+   04BC D0 07              1799 	pop	ar7
+   04BE D0 05              1800 	pop	ar5
+   04C0 D0 03              1801 	pop	ar3
+   04C2 D0 02              1802 	pop	ar2
+                           1803 ;	lcd_functions.c:374: if (i% condition== 0)
+                           1804 ;	genMod
+                           1805 ;	genModOneByte
+   04C4 8D F0              1806 	mov	b,r5
+   04C6 EF                 1807 	mov	a,r7
+   04C7 84                 1808 	div	ab
+   04C8 E5 F0              1809 	mov	a,b
+                           1810 ;	genIfx
+                           1811 ;	genIfxJump
+   04CA 60 03              1812 	jz	00134$
+   04CC 02s05r61           1813 	ljmp	00113$
+   04CF                    1814 00134$:
+                           1815 ;	lcd_functions.c:376: putstr("\n\r");
+                           1816 ;	genCall
+                           1817 ;	Peephole 182.a	used 16 bit load of DPTR
+   04CF 90s00r66           1818 	mov	dptr,#__str_4
+   04D2 75 F0 80           1819 	mov	b,#0x80
+   04D5 C0 02              1820 	push	ar2
+   04D7 C0 03              1821 	push	ar3
+   04D9 C0 05              1822 	push	ar5
+   04DB C0 07              1823 	push	ar7
+   04DD C0 00              1824 	push	ar0
+   04DF 12s00r00           1825 	lcall	_putstr
+   04E2 D0 00              1826 	pop	ar0
+   04E4 D0 07              1827 	pop	ar7
+   04E6 D0 05              1828 	pop	ar5
+   04E8 D0 03              1829 	pop	ar3
+   04EA D0 02              1830 	pop	ar2
+                           1831 ;	lcd_functions.c:377: if (command == 0x40)
+                           1832 ;	genIfx
+   04EC EB                 1833 	mov	a,r3
+                           1834 ;	genIfxJump
+                           1835 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   04ED 60 41              1836 	jz	00110$
+                           1837 ;	Peephole 300	removed redundant label 00135$
+                           1838 ;	lcd_functions.c:378: printf("0x%03x    :    ", i + command);
+                           1839 ;	genIpush
+   04EF C0 05              1840 	push	ar5
+                           1841 ;	genCast
+   04F1 8F 05              1842 	mov	ar5,r7
+   04F3 7C 00              1843 	mov	r4,#0x00
+                           1844 ;	genCast
+   04F5 A9*03              1845 	mov	r1,_ramDump_sloc0_1_0
+   04F7 7E 00              1846 	mov	r6,#0x00
+                           1847 ;	genPlus
+                           1848 ;	Peephole 236.g	used r1 instead of ar1
+   04F9 E9                 1849 	mov	a,r1
+                           1850 ;	Peephole 236.a	used r5 instead of ar5
+   04FA 2D                 1851 	add	a,r5
+   04FB FD                 1852 	mov	r5,a
+                           1853 ;	Peephole 236.g	used r6 instead of ar6
+   04FC EE                 1854 	mov	a,r6
+                           1855 ;	Peephole 236.b	used r4 instead of ar4
+   04FD 3C                 1856 	addc	a,r4
+   04FE FC                 1857 	mov	r4,a
+                           1858 ;	genIpush
+   04FF C0 02              1859 	push	ar2
+   0501 C0 03              1860 	push	ar3
+   0503 C0 05              1861 	push	ar5
+   0505 C0 07              1862 	push	ar7
+   0507 C0 00              1863 	push	ar0
+   0509 C0 05              1864 	push	ar5
+   050B C0 04              1865 	push	ar4
+                           1866 ;	genIpush
+   050D 74r69              1867 	mov	a,#__str_5
+   050F C0 E0              1868 	push	acc
+   0511 74s00              1869 	mov	a,#(__str_5 >> 8)
+   0513 C0 E0              1870 	push	acc
+   0515 74 80              1871 	mov	a,#0x80
+   0517 C0 E0              1872 	push	acc
+                           1873 ;	genCall
+   0519 12s00r00           1874 	lcall	_printf
+   051C E5 81              1875 	mov	a,sp
+   051E 24 FB              1876 	add	a,#0xfb
+   0520 F5 81              1877 	mov	sp,a
+   0522 D0 00              1878 	pop	ar0
+   0524 D0 07              1879 	pop	ar7
+   0526 D0 05              1880 	pop	ar5
+   0528 D0 03              1881 	pop	ar3
+   052A D0 02              1882 	pop	ar2
+                           1883 ;	genIpop
+   052C D0 05              1884 	pop	ar5
+                           1885 ;	Peephole 112.b	changed ljmp to sjmp
+   052E 80 31              1886 	sjmp	00113$
+   0530                    1887 00110$:
+                           1888 ;	lcd_functions.c:380: printf("0x%03x    :    ", i);
+                           1889 ;	genCast
+   0530 8F 04              1890 	mov	ar4,r7
+   0532 7E 00              1891 	mov	r6,#0x00
+                           1892 ;	genIpush
+   0534 C0 02              1893 	push	ar2
+   0536 C0 03              1894 	push	ar3
+   0538 C0 05              1895 	push	ar5
+   053A C0 07              1896 	push	ar7
+   053C C0 00              1897 	push	ar0
+   053E C0 04              1898 	push	ar4
+   0540 C0 06              1899 	push	ar6
+                           1900 ;	genIpush
+   0542 74r69              1901 	mov	a,#__str_5
+   0544 C0 E0              1902 	push	acc
+   0546 74s00              1903 	mov	a,#(__str_5 >> 8)
+   0548 C0 E0              1904 	push	acc
+   054A 74 80              1905 	mov	a,#0x80
+   054C C0 E0              1906 	push	acc
+                           1907 ;	genCall
+   054E 12s00r00           1908 	lcall	_printf
+   0551 E5 81              1909 	mov	a,sp
+   0553 24 FB              1910 	add	a,#0xfb
+   0555 F5 81              1911 	mov	sp,a
+   0557 D0 00              1912 	pop	ar0
+   0559 D0 07              1913 	pop	ar7
+   055B D0 05              1914 	pop	ar5
+   055D D0 03              1915 	pop	ar3
+   055F D0 02              1916 	pop	ar2
+   0561                    1917 00113$:
+                           1918 ;	lcd_functions.c:382: printf("%02x   ", out);
+                           1919 ;	genCast
+   0561 A9*04              1920 	mov	r1,_ramDump_sloc1_1_0
+   0563 7C 00              1921 	mov	r4,#0x00
+                           1922 ;	genIpush
+   0565 C0 02              1923 	push	ar2
+   0567 C0 03              1924 	push	ar3
+   0569 C0 05              1925 	push	ar5
+   056B C0 07              1926 	push	ar7
+   056D C0 00              1927 	push	ar0
+   056F C0 01              1928 	push	ar1
+   0571 C0 04              1929 	push	ar4
+                           1930 ;	genIpush
+   0573 74r79              1931 	mov	a,#__str_6
+   0575 C0 E0              1932 	push	acc
+   0577 74s00              1933 	mov	a,#(__str_6 >> 8)
+   0579 C0 E0              1934 	push	acc
+   057B 74 80              1935 	mov	a,#0x80
+   057D C0 E0              1936 	push	acc
+                           1937 ;	genCall
+   057F 12s00r00           1938 	lcall	_printf
+   0582 E5 81              1939 	mov	a,sp
+   0584 24 FB              1940 	add	a,#0xfb
+   0586 F5 81              1941 	mov	sp,a
+   0588 D0 00              1942 	pop	ar0
+   058A D0 07              1943 	pop	ar7
+   058C D0 05              1944 	pop	ar5
+   058E D0 03              1945 	pop	ar3
+   0590 D0 02              1946 	pop	ar2
+                           1947 ;	lcd_functions.c:383: i = i+1;
+                           1948 ;	genPlus
+                           1949 ;     genPlusIncr
+   0592 0F                 1950 	inc	r7
+                           1951 ;	lcd_functions.c:335: for (ack = 0; ack<limit; ack ++)
+                           1952 ;	genPlus
+                           1953 ;     genPlusIncr
+   0593 08                 1954 	inc	r0
+   0594 02s03rDA           1955 	ljmp	00114$
+   0597                    1956 00117$:
+                           1957 ;	lcd_functions.c:385: putstr("\n\r");
+                           1958 ;	genCall
+                           1959 ;	Peephole 182.a	used 16 bit load of DPTR
+   0597 90s00r66           1960 	mov	dptr,#__str_4
+   059A 75 F0 80           1961 	mov	b,#0x80
+   059D 12s00r00           1962 	lcall	_putstr
+                           1963 ;	lcd_functions.c:386: return 1;
+                           1964 ;	genRet
+   05A0 75 82 01           1965 	mov	dpl,#0x01
+                           1966 ;	Peephole 300	removed redundant label 00118$
+   05A3 D0 D0              1967 	pop	psw
+   05A5 92 AF              1968 	mov	ea,c
+   05A7 22                 1969 	ret
+                           1970 	.area CSEG    (CODE)
+                           1971 	.area CONST   (CODE)
+   0000                    1972 __str_0:
+   0000 49 6E 76 61 6C 69  1973 	.ascii "Invalid y_Row Entered"
+        64 20 79 5F 52 6F
+        77 20 45 6E 74 65
+        72 65 64
+   0015 0A                 1974 	.db 0x0A
+   0016 0D                 1975 	.db 0x0D
+   0017 00                 1976 	.db 0x00
+   0018                    1977 __str_1:
+   0018 52 65 2D 65 6E 74  1978 	.ascii "Re-enter y_Row length"
+        65 72 20 79 5F 52
+        6F 77 20 6C 65 6E
+        67 74 68
+   002D 0A                 1979 	.db 0x0A
+   002E 0D                 1980 	.db 0x0D
+   002F 00                 1981 	.db 0x00
+   0030                    1982 __str_2:
+   0030 49 6E 76 61 6C 69  1983 	.ascii "Invalid x_column Entered"
+        64 20 78 5F 63 6F
+        6C 75 6D 6E 20 45
+        6E 74 65 72 65 64
+   0048 0A                 1984 	.db 0x0A
+   0049 0D                 1985 	.db 0x0D
+   004A 00                 1986 	.db 0x00
+   004B                    1987 __str_3:
+   004B 52 65 2D 65 6E 74  1988 	.ascii "Re-enter x_column length"
+        65 72 20 78 5F 63
+        6F 6C 75 6D 6E 20
+        6C 65 6E 67 74 68
+   0063 0A                 1989 	.db 0x0A
+   0064 0D                 1990 	.db 0x0D
+   0065 00                 1991 	.db 0x00
+   0066                    1992 __str_4:
+   0066 0A                 1993 	.db 0x0A
+   0067 0D                 1994 	.db 0x0D
+   0068 00                 1995 	.db 0x00
+   0069                    1996 __str_5:
+   0069 30 78 25 30 33 78  1997 	.ascii "0x%03x    :    "
+        20 20 20 20 3A 20
+        20 20 20
+   0078 00                 1998 	.db 0x00
+   0079                    1999 __str_6:
+   0079 25 30 32 78 20 20  2000 	.ascii "%02x   "
+        20
+   0080 00                 2001 	.db 0x00
+                           2002 	.area XINIT   (CODE)

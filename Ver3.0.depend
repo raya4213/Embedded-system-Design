@@ -1,0 +1,123 @@
+# depslib dependency file v1.0
+1458398422 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\delay.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<stdint.h>
+	"delay.h"
+
+1458398422 c:\users\rahul yamasani\documents\codeblocks\ver3.0\delay.h
+
+1459794498 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\eepromreset.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<stdint.h>
+	"eepromreset.h"
+	"I2C_Functions.h"
+
+1459422057 c:\users\rahul yamasani\documents\codeblocks\ver3.0\eepromreset.h
+
+1458944961 c:\users\rahul yamasani\documents\codeblocks\ver3.0\i2c_functions.h
+
+1459923826 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\i2c_functions.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<malloc.h>
+	<stdint.h>
+	"putchar_getchar.h"
+	"delay.h"
+
+1459571062 c:\users\rahul yamasani\documents\codeblocks\ver3.0\putchar_getchar.h
+
+1459921736 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\io_expander.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<stdint.h>
+	"I2C_Functions.h"
+	"putchar_getchar.h"
+	"lcd_functions.h"
+
+1459309819 c:\users\rahul yamasani\documents\codeblocks\ver3.0\lcd_functions.h
+
+1459928495 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\lcd_custom.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	"putchar_getchar.h"
+	"lcd_functions.h"
+	"delay.h"
+	"LCD_Custom.h"
+
+1459884390 c:\users\rahul yamasani\documents\codeblocks\ver3.0\lcd_custom.h
+
+1459929748 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\lcd_functions.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<stdint.h>
+	"delay.h"
+	"lcd_functions.h"
+	"putchar_getchar.h"
+
+1459929171 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\main.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<stdint.h>
+	"delay.h"
+	"lcd_functions.h"
+	"putchar_getchar.h"
+	"welcome_init.h"
+	"welcome_I2C.h"
+	"I2C_Functions.h"
+	"LCD_Custom.h"
+	"eepromreset.h"
+	"I2C_Functions.h"
+	"ioexpander.h"
+	"LCD_alarm.h"
+
+1458515227 c:\users\rahul yamasani\documents\codeblocks\ver3.0\welcome_init.h
+
+1458772032 c:\users\rahul yamasani\documents\codeblocks\ver3.0\welcome_i2c.h
+
+1459917803 c:\users\rahul yamasani\documents\codeblocks\ver3.0\ioexpander.h
+
+1459880866 c:\users\rahul yamasani\documents\codeblocks\ver3.0\lcd_alarm.h
+
+1459571970 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\putchar_getchar.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<malloc.h>
+	<stdint.h>
+	<malloc.h>
+	"putchar_getchar.h"
+	"lcd_functions.h"
+
+1459929262 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\welcome_i2c.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<stdint.h>
+	"putchar_getchar.h"
+	"welcome_I2C.h"
+	"lcd_functions.h"
+	"welcome_init.h"
+
+1459837659 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\wlecome_init.c
+	"welcome_init.h"
+	"putchar_getchar.h"
+	"lcd_functions.h"
+	<stdio.h>
+
+1459926252 source:c:\users\rahul yamasani\documents\codeblocks\ver3.0\lcd_alarm.c
+	<at89c51ed2.h>
+	<stdio.h>
+	<mcs51reg.h>
+	<stdint.h>
+	"putchar_getchar.h"
+	"lcd_functions.h"
+

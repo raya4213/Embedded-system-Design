@@ -1,0 +1,1617 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.6.0 #4309 (Jul 28 2006)
+                              4 ; This file generated Wed Apr 06 00:58:02 2016
+                              5 ;--------------------------------------------------------
+                              6 	.module wlecome_init
+                              7 	.optsdcc -mmcs51 --model-large
+                              8 	
+                              9 ;--------------------------------------------------------
+                             10 ; Public variables in this module
+                             11 ;--------------------------------------------------------
+                             12 	.globl _welcome_init
+                             13 	.globl _welcome_gotoaddr
+                             14 	.globl _gotoaddr
+                             15 	.globl _welcome_gotoxy
+                             16 	.globl _gotoxy
+                             17 ;--------------------------------------------------------
+                             18 ; special function registers
+                             19 ;--------------------------------------------------------
+                             20 	.area RSEG    (DATA)
+                             21 ;--------------------------------------------------------
+                             22 ; special function bits
+                             23 ;--------------------------------------------------------
+                             24 	.area RSEG    (DATA)
+                             25 ;--------------------------------------------------------
+                             26 ; overlayable register banks
+                             27 ;--------------------------------------------------------
+                             28 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                      29 	.ds 8
+                             30 ;--------------------------------------------------------
+                             31 ; internal ram data
+                             32 ;--------------------------------------------------------
+                             33 	.area DSEG    (DATA)
+                             34 ;--------------------------------------------------------
+                             35 ; overlayable items in internal ram 
+                             36 ;--------------------------------------------------------
+                             37 	.area OSEG    (OVR,DATA)
+                             38 ;--------------------------------------------------------
+                             39 ; indirectly addressable internal ram data
+                             40 ;--------------------------------------------------------
+                             41 	.area ISEG    (DATA)
+                             42 ;--------------------------------------------------------
+                             43 ; bit data
+                             44 ;--------------------------------------------------------
+                             45 	.area BSEG    (BIT)
+                             46 ;--------------------------------------------------------
+                             47 ; paged external ram data
+                             48 ;--------------------------------------------------------
+                             49 	.area PSEG    (PAG,XDATA)
+                             50 ;--------------------------------------------------------
+                             51 ; external ram data
+                             52 ;--------------------------------------------------------
+                             53 	.area XSEG    (XDATA)
+                             54 ;--------------------------------------------------------
+                             55 ; external initialized ram data
+                             56 ;--------------------------------------------------------
+                             57 	.area XISEG   (XDATA)
+                             58 	.area HOME    (CODE)
+                             59 	.area GSINIT0 (CODE)
+                             60 	.area GSINIT1 (CODE)
+                             61 	.area GSINIT2 (CODE)
+                             62 	.area GSINIT3 (CODE)
+                             63 	.area GSINIT4 (CODE)
+                             64 	.area GSINIT5 (CODE)
+                             65 	.area GSINIT  (CODE)
+                             66 	.area GSFINAL (CODE)
+                             67 	.area CSEG    (CODE)
+                             68 ;--------------------------------------------------------
+                             69 ; global & static initialisations
+                             70 ;--------------------------------------------------------
+                             71 	.area HOME    (CODE)
+                             72 	.area GSINIT  (CODE)
+                             73 	.area GSFINAL (CODE)
+                             74 	.area GSINIT  (CODE)
+                             75 ;--------------------------------------------------------
+                             76 ; Home
+                             77 ;--------------------------------------------------------
+                             78 	.area HOME    (CODE)
+                             79 	.area CSEG    (CODE)
+                             80 ;--------------------------------------------------------
+                             81 ; code
+                             82 ;--------------------------------------------------------
+                             83 	.area CSEG    (CODE)
+                             84 ;------------------------------------------------------------
+                             85 ;Allocation info for local variables in function 'welcome_init'
+                             86 ;------------------------------------------------------------
+                             87 ;------------------------------------------------------------
+                             88 ;	wlecome_init.c:6: void welcome_init()
+                             89 ;	-----------------------------------------
+                             90 ;	 function welcome_init
+                             91 ;	-----------------------------------------
+   0000                      92 _welcome_init:
+                    0002     93 	ar2 = 0x02
+                    0003     94 	ar3 = 0x03
+                    0004     95 	ar4 = 0x04
+                    0005     96 	ar5 = 0x05
+                    0006     97 	ar6 = 0x06
+                    0007     98 	ar7 = 0x07
+                    0000     99 	ar0 = 0x00
+                    0001    100 	ar1 = 0x01
+                            101 ;	wlecome_init.c:8: putstr("\t\t\t\t\t\t\t**************************************EMBEDDED SYTEM DESIGN**************************************\n\r");
+                            102 ;	genCall
+                            103 ;	Peephole 182.a	used 16 bit load of DPTR
+   0000 90s00r00            104 	mov	dptr,#__str_0
+   0003 75 F0 80            105 	mov	b,#0x80
+   0006 12s00r00            106 	lcall	_putstr
+                            107 ;	wlecome_init.c:9: putstr("\n\r");
+                            108 ;	genCall
+                            109 ;	Peephole 182.a	used 16 bit load of DPTR
+   0009 90s00r6B            110 	mov	dptr,#__str_1
+   000C 75 F0 80            111 	mov	b,#0x80
+   000F 12s00r00            112 	lcall	_putstr
+                            113 ;	wlecome_init.c:10: putstr("\t\t\t\t\t\t\t                                       LAB 4                                              \n\r");
+                            114 ;	genCall
+                            115 ;	Peephole 182.a	used 16 bit load of DPTR
+   0012 90s00r6E            116 	mov	dptr,#__str_2
+   0015 75 F0 80            117 	mov	b,#0x80
+   0018 12s00r00            118 	lcall	_putstr
+                            119 ;	wlecome_init.c:11: putstr("\n\r");
+                            120 ;	genCall
+                            121 ;	Peephole 182.a	used 16 bit load of DPTR
+   001B 90s00r6B            122 	mov	dptr,#__str_1
+   001E 75 F0 80            123 	mov	b,#0x80
+   0021 12s00r00            124 	lcall	_putstr
+                            125 ;	wlecome_init.c:12: putstr("\n\r");
+                            126 ;	genCall
+                            127 ;	Peephole 182.a	used 16 bit load of DPTR
+   0024 90s00r6B            128 	mov	dptr,#__str_1
+   0027 75 F0 80            129 	mov	b,#0x80
+   002A 12s00r00            130 	lcall	_putstr
+                            131 ;	wlecome_init.c:13: putstr("\t\t\t\t\t\t\t\t HELLO, This program is going to display various LCD functions\n\r");
+                            132 ;	genCall
+                            133 ;	Peephole 182.a	used 16 bit load of DPTR
+   002D 90s00rD2            134 	mov	dptr,#__str_3
+   0030 75 F0 80            135 	mov	b,#0x80
+   0033 12s00r00            136 	lcall	_putstr
+                            137 ;	wlecome_init.c:14: putstr("\t\t\t\t\t\t\t\t Performing the the lcdinit() function...\n\r");
+                            138 ;	genCall
+                            139 ;	Peephole 182.a	used 16 bit load of DPTR
+   0036 90s01r1B            140 	mov	dptr,#__str_4
+   0039 75 F0 80            141 	mov	b,#0x80
+   003C 12s00r00            142 	lcall	_putstr
+                            143 ;	wlecome_init.c:15: putstr("\n\r");
+                            144 ;	genCall
+                            145 ;	Peephole 182.a	used 16 bit load of DPTR
+   003F 90s00r6B            146 	mov	dptr,#__str_1
+   0042 75 F0 80            147 	mov	b,#0x80
+   0045 12s00r00            148 	lcall	_putstr
+                            149 ;	wlecome_init.c:16: putstr("\t\t\t\t\t\t\t\t You can observe the cursor blinking at the position (0,0)\n\r");
+                            150 ;	genCall
+                            151 ;	Peephole 182.a	used 16 bit load of DPTR
+   0048 90s01r4F            152 	mov	dptr,#__str_5
+   004B 75 F0 80            153 	mov	b,#0x80
+   004E 12s00r00            154 	lcall	_putstr
+                            155 ;	wlecome_init.c:17: putstr("\n\r");
+                            156 ;	genCall
+                            157 ;	Peephole 182.a	used 16 bit load of DPTR
+   0051 90s00r6B            158 	mov	dptr,#__str_1
+   0054 75 F0 80            159 	mov	b,#0x80
+   0057 12s00r00            160 	lcall	_putstr
+                            161 ;	wlecome_init.c:18: putstr("\t\t\t\t\t\t\t\t-------------------------------------------------------------------------------\n\r");
+                            162 ;	genCall
+                            163 ;	Peephole 182.a	used 16 bit load of DPTR
+   005A 90s01r94            164 	mov	dptr,#__str_6
+   005D 75 F0 80            165 	mov	b,#0x80
+   0060 12s00r00            166 	lcall	_putstr
+                            167 ;	wlecome_init.c:19: putstr("\n\r");
+                            168 ;	genCall
+                            169 ;	Peephole 182.a	used 16 bit load of DPTR
+   0063 90s00r6B            170 	mov	dptr,#__str_1
+   0066 75 F0 80            171 	mov	b,#0x80
+                            172 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   0069 02s00r00            173 	ljmp	_putstr
+                            174 ;
+                            175 ;------------------------------------------------------------
+                            176 ;Allocation info for local variables in function 'welcome_gotoaddr'
+                            177 ;------------------------------------------------------------
+                            178 ;------------------------------------------------------------
+                            179 ;	wlecome_init.c:22: void welcome_gotoaddr()
+                            180 ;	-----------------------------------------
+                            181 ;	 function welcome_gotoaddr
+                            182 ;	-----------------------------------------
+   006C                     183 _welcome_gotoaddr:
+                            184 ;	wlecome_init.c:24: putstr("\t\t\t\t\t\t\t\t The second function I am going to demonstrate is lcdgotoaddr()\n\r");
+                            185 ;	genCall
+                            186 ;	Peephole 182.a	used 16 bit load of DPTR
+   006C 90s01rEE            187 	mov	dptr,#__str_7
+   006F 75 F0 80            188 	mov	b,#0x80
+   0072 12s00r00            189 	lcall	_putstr
+                            190 ;	wlecome_init.c:25: putstr("\t\t\t\t\t\t\t\t Enter the address at which u want to point your cursor\n\r");
+                            191 ;	genCall
+                            192 ;	Peephole 182.a	used 16 bit load of DPTR
+   0075 90s02r38            193 	mov	dptr,#__str_8
+   0078 75 F0 80            194 	mov	b,#0x80
+                            195 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   007B 02s00r00            196 	ljmp	_putstr
+                            197 ;
+                            198 ;------------------------------------------------------------
+                            199 ;Allocation info for local variables in function 'gotoaddr'
+                            200 ;------------------------------------------------------------
+                            201 ;str                       Allocated with name '_gotoaddr_str_1_1'
+                            202 ;input_address             Allocated with name '_gotoaddr_input_address_1_1'
+                            203 ;------------------------------------------------------------
+                            204 ;	wlecome_init.c:28: int gotoaddr()
+                            205 ;	-----------------------------------------
+                            206 ;	 function gotoaddr
+                            207 ;	-----------------------------------------
+   007E                     208 _gotoaddr:
+                            209 ;	wlecome_init.c:32: getstr(str);
+                            210 ;	genCall
+                            211 ;	Peephole 182.b	used 16 bit load of dptr
+   007E 90 00 00            212 	mov	dptr,#0x0000
+   0081 75 F0 00            213 	mov	b,#0x00
+   0084 12s00r00            214 	lcall	_getstr
+                            215 ;	wlecome_init.c:33: input_address = atoi(str);
+                            216 ;	genCall
+                            217 ;	Peephole 182.b	used 16 bit load of dptr
+   0087 90 00 00            218 	mov	dptr,#0x0000
+   008A 75 F0 00            219 	mov	b,#0x00
+   008D 12s00r00            220 	lcall	_atoi
+   0090 AA 82               221 	mov	r2,dpl
+                            222 ;	wlecome_init.c:35: if ((input_address>= 0 && input_address<=31) || (input_address>= 40 && input_address<=71))
+                            223 ;	genCmpLt
+                            224 ;	genCmp
+                            225 ;	peephole 177.g	optimized mov sequence
+   0092 E5 83               226 	mov	a,dph
+   0094 FB                  227 	mov	r3,a
+                            228 ;	genIfxJump
+                            229 ;	Peephole 108.e	removed ljmp by inverse jump logic
+   0095 20 E7 0F            230 	jb	acc.7,00106$
+                            231 ;	Peephole 300	removed redundant label 00111$
+                            232 ;	genCmpGt
+                            233 ;	genCmp
+   0098 C3                  234 	clr	c
+   0099 74 1F               235 	mov	a,#0x1F
+   009B 9A                  236 	subb	a,r2
+                            237 ;	Peephole 159	avoided xrl during execution
+   009C 74 80               238 	mov	a,#(0x00 ^ 0x80)
+   009E 8B F0               239 	mov	b,r3
+   00A0 63 F0 80            240 	xrl	b,#0x80
+   00A3 95 F0               241 	subb	a,b
+                            242 ;	genIfxJump
+                            243 ;	Peephole 108.a	removed ljmp by inverse jump logic
+   00A5 50 20               244 	jnc	00101$
+                            245 ;	Peephole 300	removed redundant label 00112$
+   00A7                     246 00106$:
+                            247 ;	genCmpLt
+                            248 ;	genCmp
+   00A7 C3                  249 	clr	c
+   00A8 EA                  250 	mov	a,r2
+   00A9 94 28               251 	subb	a,#0x28
+   00AB EB                  252 	mov	a,r3
+   00AC 64 80               253 	xrl	a,#0x80
+   00AE 94 80               254 	subb	a,#0x80
+                            255 ;	genIfxJump
+   00B0 50 03               256 	jnc	00113$
+   00B2 02s01r6C            257 	ljmp	00102$
+   00B5                     258 00113$:
+                            259 ;	genCmpGt
+                            260 ;	genCmp
+   00B5 C3                  261 	clr	c
+   00B6 74 47               262 	mov	a,#0x47
+   00B8 9A                  263 	subb	a,r2
+                            264 ;	Peephole 159	avoided xrl during execution
+   00B9 74 80               265 	mov	a,#(0x00 ^ 0x80)
+   00BB 8B F0               266 	mov	b,r3
+   00BD 63 F0 80            267 	xrl	b,#0x80
+   00C0 95 F0               268 	subb	a,b
+                            269 ;	genIfxJump
+   00C2 50 03               270 	jnc	00114$
+   00C4 02s01r6C            271 	ljmp	00102$
+   00C7                     272 00114$:
+   00C7                     273 00101$:
+                            274 ;	wlecome_init.c:37: putstr("\n\r");
+                            275 ;	genCall
+                            276 ;	Peephole 182.a	used 16 bit load of DPTR
+   00C7 90s00r6B            277 	mov	dptr,#__str_1
+   00CA 75 F0 80            278 	mov	b,#0x80
+   00CD C0 02               279 	push	ar2
+   00CF C0 03               280 	push	ar3
+   00D1 12s00r00            281 	lcall	_putstr
+   00D4 D0 03               282 	pop	ar3
+   00D6 D0 02               283 	pop	ar2
+                            284 ;	wlecome_init.c:38: printf_tiny("\t\t\t\t\t\t\t\t The address you have entered is %d and is a valid address\n\r", input_address);
+                            285 ;	genIpush
+   00D8 C0 02               286 	push	ar2
+   00DA C0 03               287 	push	ar3
+   00DC C0 02               288 	push	ar2
+   00DE C0 03               289 	push	ar3
+                            290 ;	genIpush
+   00E0 74r7A               291 	mov	a,#__str_9
+   00E2 C0 E0               292 	push	acc
+   00E4 74s02               293 	mov	a,#(__str_9 >> 8)
+   00E6 C0 E0               294 	push	acc
+                            295 ;	genCall
+   00E8 12s00r00            296 	lcall	_printf_tiny
+   00EB E5 81               297 	mov	a,sp
+   00ED 24 FC               298 	add	a,#0xfc
+   00EF F5 81               299 	mov	sp,a
+   00F1 D0 03               300 	pop	ar3
+   00F3 D0 02               301 	pop	ar2
+                            302 ;	wlecome_init.c:39: putstr("\n\r");
+                            303 ;	genCall
+                            304 ;	Peephole 182.a	used 16 bit load of DPTR
+   00F5 90s00r6B            305 	mov	dptr,#__str_1
+   00F8 75 F0 80            306 	mov	b,#0x80
+   00FB C0 02               307 	push	ar2
+   00FD C0 03               308 	push	ar3
+   00FF 12s00r00            309 	lcall	_putstr
+   0102 D0 03               310 	pop	ar3
+   0104 D0 02               311 	pop	ar2
+                            312 ;	wlecome_init.c:41: putstr("\t\t\t\t\t\t\t\t Now u can the see the the courser blinking at address : ");
+                            313 ;	genCall
+                            314 ;	Peephole 182.a	used 16 bit load of DPTR
+   0106 90s02rBF            315 	mov	dptr,#__str_10
+   0109 75 F0 80            316 	mov	b,#0x80
+   010C C0 02               317 	push	ar2
+   010E C0 03               318 	push	ar3
+   0110 12s00r00            319 	lcall	_putstr
+   0113 D0 03               320 	pop	ar3
+   0115 D0 02               321 	pop	ar2
+                            322 ;	wlecome_init.c:42: printf_tiny(" * %d *\n\r", input_address);
+                            323 ;	genIpush
+   0117 C0 02               324 	push	ar2
+   0119 C0 03               325 	push	ar3
+   011B C0 02               326 	push	ar2
+   011D C0 03               327 	push	ar3
+                            328 ;	genIpush
+   011F 74r01               329 	mov	a,#__str_11
+   0121 C0 E0               330 	push	acc
+   0123 74s03               331 	mov	a,#(__str_11 >> 8)
+   0125 C0 E0               332 	push	acc
+                            333 ;	genCall
+   0127 12s00r00            334 	lcall	_printf_tiny
+   012A E5 81               335 	mov	a,sp
+   012C 24 FC               336 	add	a,#0xfc
+   012E F5 81               337 	mov	sp,a
+   0130 D0 03               338 	pop	ar3
+   0132 D0 02               339 	pop	ar2
+                            340 ;	wlecome_init.c:43: lcdgotoaddr(input_address);
+                            341 ;	genCall
+   0134 8A 82               342 	mov	dpl,r2
+   0136 8B 83               343 	mov	dph,r3
+   0138 12s00r00            344 	lcall	_lcdgotoaddr
+                            345 ;	wlecome_init.c:44: putstr("\n\r");
+                            346 ;	genCall
+                            347 ;	Peephole 182.a	used 16 bit load of DPTR
+   013B 90s00r6B            348 	mov	dptr,#__str_1
+   013E 75 F0 80            349 	mov	b,#0x80
+   0141 12s00r00            350 	lcall	_putstr
+                            351 ;	wlecome_init.c:45: putstr("\t\t\t\t\t\t\t\t Yipee !! lcdgotoaddr() successfully demonstrated\n\r");
+                            352 ;	genCall
+                            353 ;	Peephole 182.a	used 16 bit load of DPTR
+   0144 90s03r0B            354 	mov	dptr,#__str_12
+   0147 75 F0 80            355 	mov	b,#0x80
+   014A 12s00r00            356 	lcall	_putstr
+                            357 ;	wlecome_init.c:46: putstr("\n\r");
+                            358 ;	genCall
+                            359 ;	Peephole 182.a	used 16 bit load of DPTR
+   014D 90s00r6B            360 	mov	dptr,#__str_1
+   0150 75 F0 80            361 	mov	b,#0x80
+   0153 12s00r00            362 	lcall	_putstr
+                            363 ;	wlecome_init.c:47: putstr("\t\t\t\t\t\t\t\t-------------------------------------------------------------------------------\n\r");
+                            364 ;	genCall
+                            365 ;	Peephole 182.a	used 16 bit load of DPTR
+   0156 90s01r94            366 	mov	dptr,#__str_6
+   0159 75 F0 80            367 	mov	b,#0x80
+   015C 12s00r00            368 	lcall	_putstr
+                            369 ;	wlecome_init.c:48: putstr("\n\r");
+                            370 ;	genCall
+                            371 ;	Peephole 182.a	used 16 bit load of DPTR
+   015F 90s00r6B            372 	mov	dptr,#__str_1
+   0162 75 F0 80            373 	mov	b,#0x80
+   0165 12s00r00            374 	lcall	_putstr
+                            375 ;	wlecome_init.c:50: return 1;
+                            376 ;	genRet
+                            377 ;	Peephole 182.b	used 16 bit load of dptr
+   0168 90 00 01            378 	mov	dptr,#0x0001
+                            379 ;	Peephole 112.b	changed ljmp to sjmp
+                            380 ;	Peephole 251.b	replaced sjmp to ret with ret
+   016B 22                  381 	ret
+   016C                     382 00102$:
+                            383 ;	wlecome_init.c:55: printf_tiny("\t\t\t\t\t\t\t\t The address you have entered is %d and is not a valid address\n\r", input_address);
+                            384 ;	genIpush
+   016C C0 02               385 	push	ar2
+   016E C0 03               386 	push	ar3
+                            387 ;	genIpush
+   0170 74r47               388 	mov	a,#__str_13
+   0172 C0 E0               389 	push	acc
+   0174 74s03               390 	mov	a,#(__str_13 >> 8)
+   0176 C0 E0               391 	push	acc
+                            392 ;	genCall
+   0178 12s00r00            393 	lcall	_printf_tiny
+   017B E5 81               394 	mov	a,sp
+   017D 24 FC               395 	add	a,#0xfc
+   017F F5 81               396 	mov	sp,a
+                            397 ;	wlecome_init.c:56: return 0;
+                            398 ;	genRet
+                            399 ;	Peephole 182.b	used 16 bit load of dptr
+   0181 90 00 00            400 	mov	dptr,#0x0000
+                            401 ;	Peephole 300	removed redundant label 00107$
+   0184 22                  402 	ret
+                            403 ;------------------------------------------------------------
+                            404 ;Allocation info for local variables in function 'welcome_gotoxy'
+                            405 ;------------------------------------------------------------
+                            406 ;------------------------------------------------------------
+                            407 ;	wlecome_init.c:61: void welcome_gotoxy()
+                            408 ;	-----------------------------------------
+                            409 ;	 function welcome_gotoxy
+                            410 ;	-----------------------------------------
+   0185                     411 _welcome_gotoxy:
+                            412 ;	wlecome_init.c:63: putstr("\t\t\t\t\t\t\t\t The next function I am going to demonstrate is lcdgotoxy()\n\r");
+                            413 ;	genCall
+                            414 ;	Peephole 182.a	used 16 bit load of DPTR
+   0185 90s03r90            415 	mov	dptr,#__str_14
+   0188 75 F0 80            416 	mov	b,#0x80
+                            417 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   018B 02s00r00            418 	ljmp	_putstr
+                            419 ;
+                            420 ;------------------------------------------------------------
+                            421 ;Allocation info for local variables in function 'gotoxy'
+                            422 ;------------------------------------------------------------
+                            423 ;x_column                  Allocated with name '_gotoxy_x_column_1_1'
+                            424 ;y_row                     Allocated with name '_gotoxy_y_row_1_1'
+                            425 ;option                    Allocated with name '_gotoxy_option_1_1'
+                            426 ;str                       Allocated with name '_gotoxy_str_1_1'
+                            427 ;LCD_str                   Allocated with name '_gotoxy_LCD_str_1_1'
+                            428 ;LCD_character             Allocated with name '_gotoxy_LCD_character_1_1'
+                            429 ;------------------------------------------------------------
+                            430 ;	wlecome_init.c:69: void gotoxy()
+                            431 ;	-----------------------------------------
+                            432 ;	 function gotoxy
+                            433 ;	-----------------------------------------
+   018E                     434 _gotoxy:
+                            435 ;	wlecome_init.c:78: putstr("\n\r\n\r");
+                            436 ;	genCall
+                            437 ;	Peephole 182.a	used 16 bit load of DPTR
+   018E 90s03rD6            438 	mov	dptr,#__str_15
+   0191 75 F0 80            439 	mov	b,#0x80
+   0194 12s00r00            440 	lcall	_putstr
+                            441 ;	wlecome_init.c:79: putstr("\t\t\t\t\t\t\t\t @@@@@@@@@@@@@ CONDITIONS FOR 'x' and 'y' @@@@@@@@@@@@@\n\r");
+                            442 ;	genCall
+                            443 ;	Peephole 182.a	used 16 bit load of DPTR
+   0197 90s03rDB            444 	mov	dptr,#__str_16
+   019A 75 F0 80            445 	mov	b,#0x80
+   019D 12s00r00            446 	lcall	_putstr
+                            447 ;	wlecome_init.c:80: putstr("\n\r");
+                            448 ;	genCall
+                            449 ;	Peephole 182.a	used 16 bit load of DPTR
+   01A0 90s00r6B            450 	mov	dptr,#__str_1
+   01A3 75 F0 80            451 	mov	b,#0x80
+   01A6 12s00r00            452 	lcall	_putstr
+                            453 ;	wlecome_init.c:81: putstr("\t\t\t\t\t\t\t\t 1. The value of 'x' should be in between '0' and '15'\n\r");
+                            454 ;	genCall
+                            455 ;	Peephole 182.a	used 16 bit load of DPTR
+   01A9 90s04r1D            456 	mov	dptr,#__str_17
+   01AC 75 F0 80            457 	mov	b,#0x80
+   01AF 12s00r00            458 	lcall	_putstr
+                            459 ;	wlecome_init.c:82: putstr("\t\t\t\t\t\t\t\t 2. The value of 'y' should be in between '0' and '3'\n\r");
+                            460 ;	genCall
+                            461 ;	Peephole 182.a	used 16 bit load of DPTR
+   01B2 90s04r5E            462 	mov	dptr,#__str_18
+   01B5 75 F0 80            463 	mov	b,#0x80
+   01B8 12s00r00            464 	lcall	_putstr
+                            465 ;	wlecome_init.c:84: putstr("\n\r");
+                            466 ;	genCall
+                            467 ;	Peephole 182.a	used 16 bit load of DPTR
+   01BB 90s00r6B            468 	mov	dptr,#__str_1
+   01BE 75 F0 80            469 	mov	b,#0x80
+   01C1 12s00r00            470 	lcall	_putstr
+                            471 ;	wlecome_init.c:85: putstr("\t\t\t\t\t\t\t\t Enter the y (row)\n\r");
+                            472 ;	genCall
+                            473 ;	Peephole 182.a	used 16 bit load of DPTR
+   01C4 90s04r9E            474 	mov	dptr,#__str_19
+   01C7 75 F0 80            475 	mov	b,#0x80
+   01CA 12s00r00            476 	lcall	_putstr
+                            477 ;	wlecome_init.c:86: getstr(str);
+                            478 ;	genCall
+                            479 ;	Peephole 182.b	used 16 bit load of dptr
+   01CD 90 00 00            480 	mov	dptr,#0x0000
+   01D0 75 F0 00            481 	mov	b,#0x00
+   01D3 12s00r00            482 	lcall	_getstr
+                            483 ;	wlecome_init.c:87: y_row = atoi(str);
+                            484 ;	genCall
+                            485 ;	Peephole 182.b	used 16 bit load of dptr
+   01D6 90 00 00            486 	mov	dptr,#0x0000
+   01D9 75 F0 00            487 	mov	b,#0x00
+   01DC 12s00r00            488 	lcall	_atoi
+   01DF AA 82               489 	mov	r2,dpl
+   01E1 AB 83               490 	mov	r3,dph
+                            491 ;	wlecome_init.c:88: printf_tiny("\t\t\t\t\t\t\t\t y_row you have entered : %d\n\r", y_row);
+                            492 ;	genIpush
+   01E3 C0 02               493 	push	ar2
+   01E5 C0 03               494 	push	ar3
+   01E7 C0 02               495 	push	ar2
+   01E9 C0 03               496 	push	ar3
+                            497 ;	genIpush
+   01EB 74rBB               498 	mov	a,#__str_20
+   01ED C0 E0               499 	push	acc
+   01EF 74s04               500 	mov	a,#(__str_20 >> 8)
+   01F1 C0 E0               501 	push	acc
+                            502 ;	genCall
+   01F3 12s00r00            503 	lcall	_printf_tiny
+   01F6 E5 81               504 	mov	a,sp
+   01F8 24 FC               505 	add	a,#0xfc
+   01FA F5 81               506 	mov	sp,a
+   01FC D0 03               507 	pop	ar3
+   01FE D0 02               508 	pop	ar2
+                            509 ;	wlecome_init.c:89: putstr("\n\r");
+                            510 ;	genCall
+                            511 ;	Peephole 182.a	used 16 bit load of DPTR
+   0200 90s00r6B            512 	mov	dptr,#__str_1
+   0203 75 F0 80            513 	mov	b,#0x80
+   0206 C0 02               514 	push	ar2
+   0208 C0 03               515 	push	ar3
+   020A 12s00r00            516 	lcall	_putstr
+   020D D0 03               517 	pop	ar3
+   020F D0 02               518 	pop	ar2
+                            519 ;	wlecome_init.c:91: putstr("\t\t\t\t\t\t\t\t Enter the x (column)\n\r");
+                            520 ;	genCall
+                            521 ;	Peephole 182.a	used 16 bit load of DPTR
+   0211 90s04rE2            522 	mov	dptr,#__str_21
+   0214 75 F0 80            523 	mov	b,#0x80
+   0217 C0 02               524 	push	ar2
+   0219 C0 03               525 	push	ar3
+   021B 12s00r00            526 	lcall	_putstr
+   021E D0 03               527 	pop	ar3
+   0220 D0 02               528 	pop	ar2
+                            529 ;	wlecome_init.c:92: getstr(str);
+                            530 ;	genCall
+                            531 ;	Peephole 182.b	used 16 bit load of dptr
+   0222 90 00 00            532 	mov	dptr,#0x0000
+   0225 75 F0 00            533 	mov	b,#0x00
+   0228 C0 02               534 	push	ar2
+   022A C0 03               535 	push	ar3
+   022C 12s00r00            536 	lcall	_getstr
+   022F D0 03               537 	pop	ar3
+   0231 D0 02               538 	pop	ar2
+                            539 ;	wlecome_init.c:93: x_column = atoi(str);
+                            540 ;	genCall
+                            541 ;	Peephole 182.b	used 16 bit load of dptr
+   0233 90 00 00            542 	mov	dptr,#0x0000
+   0236 75 F0 00            543 	mov	b,#0x00
+   0239 C0 02               544 	push	ar2
+   023B C0 03               545 	push	ar3
+   023D 12s00r00            546 	lcall	_atoi
+   0240 AC 82               547 	mov	r4,dpl
+   0242 AD 83               548 	mov	r5,dph
+   0244 D0 03               549 	pop	ar3
+   0246 D0 02               550 	pop	ar2
+                            551 ;	wlecome_init.c:94: printf_tiny("\t\t\t\t\t\t\t\t x_column you have entered : %d\n\r", x_column);
+                            552 ;	genIpush
+   0248 C0 02               553 	push	ar2
+   024A C0 03               554 	push	ar3
+   024C C0 04               555 	push	ar4
+   024E C0 05               556 	push	ar5
+   0250 C0 04               557 	push	ar4
+   0252 C0 05               558 	push	ar5
+                            559 ;	genIpush
+   0254 74r02               560 	mov	a,#__str_22
+   0256 C0 E0               561 	push	acc
+   0258 74s05               562 	mov	a,#(__str_22 >> 8)
+   025A C0 E0               563 	push	acc
+                            564 ;	genCall
+   025C 12s00r00            565 	lcall	_printf_tiny
+   025F E5 81               566 	mov	a,sp
+   0261 24 FC               567 	add	a,#0xfc
+   0263 F5 81               568 	mov	sp,a
+   0265 D0 05               569 	pop	ar5
+   0267 D0 04               570 	pop	ar4
+   0269 D0 03               571 	pop	ar3
+   026B D0 02               572 	pop	ar2
+                            573 ;	wlecome_init.c:95: putstr("\n\r");
+                            574 ;	genCall
+                            575 ;	Peephole 182.a	used 16 bit load of DPTR
+   026D 90s00r6B            576 	mov	dptr,#__str_1
+   0270 75 F0 80            577 	mov	b,#0x80
+   0273 C0 02               578 	push	ar2
+   0275 C0 03               579 	push	ar3
+   0277 C0 04               580 	push	ar4
+   0279 C0 05               581 	push	ar5
+   027B 12s00r00            582 	lcall	_putstr
+   027E D0 05               583 	pop	ar5
+   0280 D0 04               584 	pop	ar4
+   0282 D0 03               585 	pop	ar3
+   0284 D0 02               586 	pop	ar2
+                            587 ;	wlecome_init.c:97: putstr("\t\t\t\t\t\t\t\t Now Demonstrating lcdputstr() and lcdputch()...\n\r");
+                            588 ;	genCall
+                            589 ;	Peephole 182.a	used 16 bit load of DPTR
+   0286 90s05r2C            590 	mov	dptr,#__str_23
+   0289 75 F0 80            591 	mov	b,#0x80
+   028C C0 02               592 	push	ar2
+   028E C0 03               593 	push	ar3
+   0290 C0 04               594 	push	ar4
+   0292 C0 05               595 	push	ar5
+   0294 12s00r00            596 	lcall	_putstr
+   0297 D0 05               597 	pop	ar5
+   0299 D0 04               598 	pop	ar4
+   029B D0 03               599 	pop	ar3
+   029D D0 02               600 	pop	ar2
+                            601 ;	wlecome_init.c:98: putstr("\n\r");
+                            602 ;	genCall
+                            603 ;	Peephole 182.a	used 16 bit load of DPTR
+   029F 90s00r6B            604 	mov	dptr,#__str_1
+   02A2 75 F0 80            605 	mov	b,#0x80
+   02A5 C0 02               606 	push	ar2
+   02A7 C0 03               607 	push	ar3
+   02A9 C0 04               608 	push	ar4
+   02AB C0 05               609 	push	ar5
+   02AD 12s00r00            610 	lcall	_putstr
+   02B0 D0 05               611 	pop	ar5
+   02B2 D0 04               612 	pop	ar4
+   02B4 D0 03               613 	pop	ar3
+   02B6 D0 02               614 	pop	ar2
+                            615 ;	wlecome_init.c:99: putstr("\t\t\t\t\t\t\t\t\t\t 1. Demonstrate lcdputstr()\n\r");
+                            616 ;	genCall
+                            617 ;	Peephole 182.a	used 16 bit load of DPTR
+   02B8 90s05r67            618 	mov	dptr,#__str_24
+   02BB 75 F0 80            619 	mov	b,#0x80
+   02BE C0 02               620 	push	ar2
+   02C0 C0 03               621 	push	ar3
+   02C2 C0 04               622 	push	ar4
+   02C4 C0 05               623 	push	ar5
+   02C6 12s00r00            624 	lcall	_putstr
+   02C9 D0 05               625 	pop	ar5
+   02CB D0 04               626 	pop	ar4
+   02CD D0 03               627 	pop	ar3
+   02CF D0 02               628 	pop	ar2
+                            629 ;	wlecome_init.c:100: putstr("\t\t\t\t\t\t\t\t\t\t 2. Demonstrate lcdputch()\n\r");
+                            630 ;	genCall
+                            631 ;	Peephole 182.a	used 16 bit load of DPTR
+   02D1 90s05r8F            632 	mov	dptr,#__str_25
+   02D4 75 F0 80            633 	mov	b,#0x80
+   02D7 C0 02               634 	push	ar2
+   02D9 C0 03               635 	push	ar3
+   02DB C0 04               636 	push	ar4
+   02DD C0 05               637 	push	ar5
+   02DF 12s00r00            638 	lcall	_putstr
+   02E2 D0 05               639 	pop	ar5
+   02E4 D0 04               640 	pop	ar4
+   02E6 D0 03               641 	pop	ar3
+   02E8 D0 02               642 	pop	ar2
+                            643 ;	wlecome_init.c:101: putstr("\n\r");
+                            644 ;	genCall
+                            645 ;	Peephole 182.a	used 16 bit load of DPTR
+   02EA 90s00r6B            646 	mov	dptr,#__str_1
+   02ED 75 F0 80            647 	mov	b,#0x80
+   02F0 C0 02               648 	push	ar2
+   02F2 C0 03               649 	push	ar3
+   02F4 C0 04               650 	push	ar4
+   02F6 C0 05               651 	push	ar5
+   02F8 12s00r00            652 	lcall	_putstr
+   02FB D0 05               653 	pop	ar5
+   02FD D0 04               654 	pop	ar4
+   02FF D0 03               655 	pop	ar3
+   0301 D0 02               656 	pop	ar2
+                            657 ;	wlecome_init.c:102: putstr("\t\t\t\t\t\t\t\t\t\t Please enter your option\n\r");
+                            658 ;	genCall
+                            659 ;	Peephole 182.a	used 16 bit load of DPTR
+   0303 90s05rB6            660 	mov	dptr,#__str_26
+   0306 75 F0 80            661 	mov	b,#0x80
+   0309 C0 02               662 	push	ar2
+   030B C0 03               663 	push	ar3
+   030D C0 04               664 	push	ar4
+   030F C0 05               665 	push	ar5
+   0311 12s00r00            666 	lcall	_putstr
+   0314 D0 05               667 	pop	ar5
+   0316 D0 04               668 	pop	ar4
+   0318 D0 03               669 	pop	ar3
+   031A D0 02               670 	pop	ar2
+                            671 ;	wlecome_init.c:104: option  = getchar();
+                            672 ;	genCall
+   031C C0 02               673 	push	ar2
+   031E C0 03               674 	push	ar3
+   0320 C0 04               675 	push	ar4
+   0322 C0 05               676 	push	ar5
+   0324 12s00r00            677 	lcall	_getchar
+   0327 AE 82               678 	mov	r6,dpl
+   0329 D0 05               679 	pop	ar5
+   032B D0 04               680 	pop	ar4
+   032D D0 03               681 	pop	ar3
+   032F D0 02               682 	pop	ar2
+                            683 ;	wlecome_init.c:106: switch(option)
+                            684 ;	genCmpEq
+                            685 ;	gencjneshort
+   0331 BE 31 02            686 	cjne	r6,#0x31,00119$
+                            687 ;	Peephole 112.b	changed ljmp to sjmp
+   0334 80 09               688 	sjmp	00101$
+   0336                     689 00119$:
+                            690 ;	genCmpEq
+                            691 ;	gencjneshort
+   0336 BE 32 03            692 	cjne	r6,#0x32,00120$
+   0339 02s04r30            693 	ljmp	00105$
+   033C                     694 00120$:
+   033C 02s04rB8            695 	ljmp	00109$
+                            696 ;	wlecome_init.c:108: case '1':
+   033F                     697 00101$:
+                            698 ;	wlecome_init.c:109: if (checkValidrow(y_row) && checkValidcolumn(x_column))
+                            699 ;	genCall
+   033F 8A 82               700 	mov	dpl,r2
+   0341 8B 83               701 	mov	dph,r3
+   0343 C0 02               702 	push	ar2
+   0345 C0 03               703 	push	ar3
+   0347 C0 04               704 	push	ar4
+   0349 C0 05               705 	push	ar5
+   034B 12s00r00            706 	lcall	_checkValidrow
+   034E E5 82               707 	mov	a,dpl
+   0350 85 83 F0            708 	mov	b,dph
+   0353 D0 05               709 	pop	ar5
+   0355 D0 04               710 	pop	ar4
+   0357 D0 03               711 	pop	ar3
+   0359 D0 02               712 	pop	ar2
+                            713 ;	genIfx
+   035B 45 F0               714 	orl	a,b
+                            715 ;	genIfxJump
+   035D 70 01               716 	jnz	00121$
+                            717 ;	Peephole 251.a	replaced ljmp to ret with ret
+   035F 22                  718 	ret
+   0360                     719 00121$:
+                            720 ;	genCall
+   0360 8C 82               721 	mov	dpl,r4
+   0362 8D 83               722 	mov	dph,r5
+   0364 C0 02               723 	push	ar2
+   0366 C0 03               724 	push	ar3
+   0368 C0 04               725 	push	ar4
+   036A C0 05               726 	push	ar5
+   036C 12s00r00            727 	lcall	_checkValidcolumn
+   036F E5 82               728 	mov	a,dpl
+   0371 85 83 F0            729 	mov	b,dph
+   0374 D0 05               730 	pop	ar5
+   0376 D0 04               731 	pop	ar4
+   0378 D0 03               732 	pop	ar3
+   037A D0 02               733 	pop	ar2
+                            734 ;	genIfx
+   037C 45 F0               735 	orl	a,b
+                            736 ;	genIfxJump
+   037E 70 01               737 	jnz	00122$
+                            738 ;	Peephole 251.a	replaced ljmp to ret with ret
+   0380 22                  739 	ret
+   0381                     740 00122$:
+                            741 ;	wlecome_init.c:111: putstr("\t\t\t\t\t\t\t\t\t\t Enter the string you want to display\n\r");
+                            742 ;	genCall
+                            743 ;	Peephole 182.a	used 16 bit load of DPTR
+   0381 90s05rDC            744 	mov	dptr,#__str_27
+   0384 75 F0 80            745 	mov	b,#0x80
+   0387 C0 02               746 	push	ar2
+   0389 C0 03               747 	push	ar3
+   038B C0 04               748 	push	ar4
+   038D C0 05               749 	push	ar5
+   038F 12s00r00            750 	lcall	_putstr
+   0392 D0 05               751 	pop	ar5
+   0394 D0 04               752 	pop	ar4
+   0396 D0 03               753 	pop	ar3
+   0398 D0 02               754 	pop	ar2
+                            755 ;	wlecome_init.c:113: lcdgotoxy(y_row, x_column);
+                            756 ;	genAssign
+   039A 90s00r00            757 	mov	dptr,#_lcdgotoxy_PARM_2
+   039D EC                  758 	mov	a,r4
+   039E F0                  759 	movx	@dptr,a
+   039F A3                  760 	inc	dptr
+   03A0 ED                  761 	mov	a,r5
+   03A1 F0                  762 	movx	@dptr,a
+                            763 ;	genCall
+   03A2 8A 82               764 	mov	dpl,r2
+   03A4 8B 83               765 	mov	dph,r3
+   03A6 C0 02               766 	push	ar2
+   03A8 C0 03               767 	push	ar3
+   03AA C0 04               768 	push	ar4
+   03AC C0 05               769 	push	ar5
+   03AE 12s00r00            770 	lcall	_lcdgotoxy
+   03B1 D0 05               771 	pop	ar5
+   03B3 D0 04               772 	pop	ar4
+   03B5 D0 03               773 	pop	ar3
+   03B7 D0 02               774 	pop	ar2
+                            775 ;	wlecome_init.c:114: getstr(LCD_str);
+                            776 ;	genCall
+                            777 ;	Peephole 182.b	used 16 bit load of dptr
+   03B9 90 00 00            778 	mov	dptr,#0x0000
+   03BC 75 F0 00            779 	mov	b,#0x00
+   03BF C0 02               780 	push	ar2
+   03C1 C0 03               781 	push	ar3
+   03C3 C0 04               782 	push	ar4
+   03C5 C0 05               783 	push	ar5
+   03C7 12s00r00            784 	lcall	_getstr
+   03CA D0 05               785 	pop	ar5
+   03CC D0 04               786 	pop	ar4
+   03CE D0 03               787 	pop	ar3
+   03D0 D0 02               788 	pop	ar2
+                            789 ;	wlecome_init.c:115: putstr("\t\t\t\t\t\t\t\t\t\t The String you have entered is :");
+                            790 ;	genCall
+                            791 ;	Peephole 182.a	used 16 bit load of DPTR
+   03D2 90s06r0E            792 	mov	dptr,#__str_28
+   03D5 75 F0 80            793 	mov	b,#0x80
+   03D8 C0 02               794 	push	ar2
+   03DA C0 03               795 	push	ar3
+   03DC C0 04               796 	push	ar4
+   03DE C0 05               797 	push	ar5
+   03E0 12s00r00            798 	lcall	_putstr
+   03E3 D0 05               799 	pop	ar5
+   03E5 D0 04               800 	pop	ar4
+   03E7 D0 03               801 	pop	ar3
+   03E9 D0 02               802 	pop	ar2
+                            803 ;	wlecome_init.c:116: printf(" ---  %s  ---",LCD_str);
+                            804 ;	genIpush
+   03EB C0 02               805 	push	ar2
+   03ED C0 03               806 	push	ar3
+   03EF C0 04               807 	push	ar4
+   03F1 C0 05               808 	push	ar5
+                            809 ;	Peephole 181	changed mov to clr
+   03F3 E4                  810 	clr	a
+   03F4 C0 E0               811 	push	acc
+   03F6 C0 E0               812 	push	acc
+   03F8 C0 E0               813 	push	acc
+                            814 ;	genIpush
+   03FA 74r3A               815 	mov	a,#__str_29
+   03FC C0 E0               816 	push	acc
+   03FE 74s06               817 	mov	a,#(__str_29 >> 8)
+   0400 C0 E0               818 	push	acc
+   0402 74 80               819 	mov	a,#0x80
+   0404 C0 E0               820 	push	acc
+                            821 ;	genCall
+   0406 12s00r00            822 	lcall	_printf
+   0409 E5 81               823 	mov	a,sp
+   040B 24 FA               824 	add	a,#0xfa
+   040D F5 81               825 	mov	sp,a
+   040F D0 05               826 	pop	ar5
+   0411 D0 04               827 	pop	ar4
+   0413 D0 03               828 	pop	ar3
+   0415 D0 02               829 	pop	ar2
+                            830 ;	wlecome_init.c:117: lcdputstr(LCD_str, y_row, x_column);
+                            831 ;	genAssign
+   0417 90s00r00            832 	mov	dptr,#_lcdputstr_PARM_2
+   041A EA                  833 	mov	a,r2
+   041B F0                  834 	movx	@dptr,a
+   041C A3                  835 	inc	dptr
+   041D EB                  836 	mov	a,r3
+   041E F0                  837 	movx	@dptr,a
+                            838 ;	genAssign
+   041F 90s00r00            839 	mov	dptr,#_lcdputstr_PARM_3
+   0422 EC                  840 	mov	a,r4
+   0423 F0                  841 	movx	@dptr,a
+   0424 A3                  842 	inc	dptr
+   0425 ED                  843 	mov	a,r5
+   0426 F0                  844 	movx	@dptr,a
+                            845 ;	genCall
+                            846 ;	Peephole 182.b	used 16 bit load of dptr
+   0427 90 00 00            847 	mov	dptr,#0x0000
+   042A 75 F0 00            848 	mov	b,#0x00
+                            849 ;	wlecome_init.c:120: break;
+                            850 ;	Peephole 251.a	replaced ljmp to ret with ret
+                            851 ;	Peephole 253.a	replaced lcall/ret with ljmp
+   042D 02s00r00            852 	ljmp	_lcdputstr
+                            853 ;	wlecome_init.c:122: case '2':
+   0430                     854 00105$:
+                            855 ;	wlecome_init.c:123: if (checkValidrow(y_row) && checkValidcolumn(x_column))
+                            856 ;	genCall
+   0430 8A 82               857 	mov	dpl,r2
+   0432 8B 83               858 	mov	dph,r3
+   0434 C0 02               859 	push	ar2
+   0436 C0 03               860 	push	ar3
+   0438 C0 04               861 	push	ar4
+   043A C0 05               862 	push	ar5
+   043C 12s00r00            863 	lcall	_checkValidrow
+   043F E5 82               864 	mov	a,dpl
+   0441 85 83 F0            865 	mov	b,dph
+   0444 D0 05               866 	pop	ar5
+   0446 D0 04               867 	pop	ar4
+   0448 D0 03               868 	pop	ar3
+   044A D0 02               869 	pop	ar2
+                            870 ;	genIfx
+   044C 45 F0               871 	orl	a,b
+                            872 ;	genIfxJump
+                            873 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   044E 60 68               874 	jz	00109$
+                            875 ;	Peephole 300	removed redundant label 00123$
+                            876 ;	genCall
+   0450 8C 82               877 	mov	dpl,r4
+   0452 8D 83               878 	mov	dph,r5
+   0454 C0 02               879 	push	ar2
+   0456 C0 03               880 	push	ar3
+   0458 C0 04               881 	push	ar4
+   045A C0 05               882 	push	ar5
+   045C 12s00r00            883 	lcall	_checkValidcolumn
+   045F E5 82               884 	mov	a,dpl
+   0461 85 83 F0            885 	mov	b,dph
+   0464 D0 05               886 	pop	ar5
+   0466 D0 04               887 	pop	ar4
+   0468 D0 03               888 	pop	ar3
+   046A D0 02               889 	pop	ar2
+                            890 ;	genIfx
+   046C 45 F0               891 	orl	a,b
+                            892 ;	genIfxJump
+                            893 ;	Peephole 108.c	removed ljmp by inverse jump logic
+   046E 60 48               894 	jz	00109$
+                            895 ;	Peephole 300	removed redundant label 00124$
+                            896 ;	wlecome_init.c:125: putstr("\t\t\t\t\t\t\t\t\t\t Enter the character you want to display\n\r");
+                            897 ;	genCall
+                            898 ;	Peephole 182.a	used 16 bit load of DPTR
+   0470 90s06r48            899 	mov	dptr,#__str_30
+   0473 75 F0 80            900 	mov	b,#0x80
+   0476 C0 02               901 	push	ar2
+   0478 C0 03               902 	push	ar3
+   047A C0 04               903 	push	ar4
+   047C C0 05               904 	push	ar5
+   047E 12s00r00            905 	lcall	_putstr
+   0481 D0 05               906 	pop	ar5
+   0483 D0 04               907 	pop	ar4
+   0485 D0 03               908 	pop	ar3
+   0487 D0 02               909 	pop	ar2
+                            910 ;	wlecome_init.c:127: lcdgotoxy(y_row, x_column);
+                            911 ;	genAssign
+   0489 90s00r00            912 	mov	dptr,#_lcdgotoxy_PARM_2
+   048C EC                  913 	mov	a,r4
+   048D F0                  914 	movx	@dptr,a
+   048E A3                  915 	inc	dptr
+   048F ED                  916 	mov	a,r5
+   0490 F0                  917 	movx	@dptr,a
+                            918 ;	genCall
+   0491 8A 82               919 	mov	dpl,r2
+   0493 8B 83               920 	mov	dph,r3
+   0495 12s00r00            921 	lcall	_lcdgotoxy
+                            922 ;	wlecome_init.c:128: LCD_character = getchar();
+                            923 ;	genCall
+   0498 12s00r00            924 	lcall	_getchar
+   049B AA 82               925 	mov	r2,dpl
+                            926 ;	wlecome_init.c:129: putstr("\t\t\t\t\t\t\t\t\t\t The character you have entered is :");
+                            927 ;	genCall
+                            928 ;	Peephole 182.a	used 16 bit load of DPTR
+   049D 90s06r7D            929 	mov	dptr,#__str_31
+   04A0 75 F0 80            930 	mov	b,#0x80
+   04A3 C0 02               931 	push	ar2
+   04A5 12s00r00            932 	lcall	_putstr
+   04A8 D0 02               933 	pop	ar2
+                            934 ;	wlecome_init.c:130: putchar(LCD_character);
+                            935 ;	genCall
+   04AA 8A 82               936 	mov	dpl,r2
+   04AC C0 02               937 	push	ar2
+   04AE 12s00r00            938 	lcall	_putchar
+   04B1 D0 02               939 	pop	ar2
+                            940 ;	wlecome_init.c:131: lcdputch(LCD_character);
+                            941 ;	genCall
+   04B3 8A 82               942 	mov	dpl,r2
+                            943 ;	wlecome_init.c:132: break;
+                            944 ;	wlecome_init.c:135: default:
+                            945 ;	Peephole 112.b	changed ljmp to sjmp
+                            946 ;	Peephole 251.b	replaced sjmp to ret with ret
+                            947 ;	Peephole 253.a	replaced lcall/ret with ljmp
+   04B5 02s00r00            948 	ljmp	_lcdputch
+   04B8                     949 00109$:
+                            950 ;	wlecome_init.c:136: putstr("\n\r\n\r");
+                            951 ;	genCall
+                            952 ;	Peephole 182.a	used 16 bit load of DPTR
+   04B8 90s03rD6            953 	mov	dptr,#__str_15
+   04BB 75 F0 80            954 	mov	b,#0x80
+   04BE 12s00r00            955 	lcall	_putstr
+                            956 ;	wlecome_init.c:137: putstr("\t\t\t\t\t\t\t\t\t\t Invalid option entered \n\r");
+                            957 ;	genCall
+                            958 ;	Peephole 182.a	used 16 bit load of DPTR
+   04C1 90s06rAC            959 	mov	dptr,#__str_32
+   04C4 75 F0 80            960 	mov	b,#0x80
+   04C7 12s00r00            961 	lcall	_putstr
+                            962 ;	wlecome_init.c:138: putstr("\t\t\t\t\t\t\t\t\t\t ***RE ENTER YOUR OPTION *** \n\r");
+                            963 ;	genCall
+                            964 ;	Peephole 182.a	used 16 bit load of DPTR
+   04CA 90s06rD1            965 	mov	dptr,#__str_33
+   04CD 75 F0 80            966 	mov	b,#0x80
+                            967 ;	wlecome_init.c:140: }
+                            968 ;	Peephole 253.b	replaced lcall/ret with ljmp
+   04D0 02s00r00            969 	ljmp	_putstr
+                            970 ;
+                            971 	.area CSEG    (CODE)
+                            972 	.area CONST   (CODE)
+   0000                     973 __str_0:
+   0000 09                  974 	.db 0x09
+   0001 09                  975 	.db 0x09
+   0002 09                  976 	.db 0x09
+   0003 09                  977 	.db 0x09
+   0004 09                  978 	.db 0x09
+   0005 09                  979 	.db 0x09
+   0006 09                  980 	.db 0x09
+   0007 2A 2A 2A 2A 2A 2A   981 	.ascii "**************************************EMBEDDED SYTEM "
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A 45 4D 42 45
+        44 44 45 44 20 53
+        59 54 45 4D 20
+   003C 44 45 53 49 47 4E   982 	.ascii "DESIGN**************************************"
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A 2A 2A 2A 2A
+        2A 2A
+   0068 0A                  983 	.db 0x0A
+   0069 0D                  984 	.db 0x0D
+   006A 00                  985 	.db 0x00
+   006B                     986 __str_1:
+   006B 0A                  987 	.db 0x0A
+   006C 0D                  988 	.db 0x0D
+   006D 00                  989 	.db 0x00
+   006E                     990 __str_2:
+   006E 09                  991 	.db 0x09
+   006F 09                  992 	.db 0x09
+   0070 09                  993 	.db 0x09
+   0071 09                  994 	.db 0x09
+   0072 09                  995 	.db 0x09
+   0073 09                  996 	.db 0x09
+   0074 09                  997 	.db 0x09
+   0075 20 20 20 20 20 20   998 	.ascii "                                       LAB 4         "
+        20 20 20 20 20 20
+        20 20 20 20 20 20
+        20 20 20 20 20 20
+        20 20 20 20 20 20
+        20 20 20 20 20 20
+        20 20 20 4C 41 42
+        20 34 20 20 20 20
+        20 20 20 20 20
+   00AA 20 20 20 20 20 20   999 	.ascii "                                     "
+        20 20 20 20 20 20
+        20 20 20 20 20 20
+        20 20 20 20 20 20
+        20 20 20 20 20 20
+        20 20 20 20 20 20
+        20
+   00CF 0A                 1000 	.db 0x0A
+   00D0 0D                 1001 	.db 0x0D
+   00D1 00                 1002 	.db 0x00
+   00D2                    1003 __str_3:
+   00D2 09                 1004 	.db 0x09
+   00D3 09                 1005 	.db 0x09
+   00D4 09                 1006 	.db 0x09
+   00D5 09                 1007 	.db 0x09
+   00D6 09                 1008 	.db 0x09
+   00D7 09                 1009 	.db 0x09
+   00D8 09                 1010 	.db 0x09
+   00D9 09                 1011 	.db 0x09
+   00DA 20 48 45 4C 4C 4F  1012 	.ascii " HELLO, This program is going to display various LCD"
+        2C 20 54 68 69 73
+        20 70 72 6F 67 72
+        61 6D 20 69 73 20
+        67 6F 69 6E 67 20
+        74 6F 20 64 69 73
+        70 6C 61 79 20 76
+        61 72 69 6F 75 73
+        20 4C 43 44
+   010E 20 66 75 6E 63 74  1013 	.ascii " functions"
+        69 6F 6E 73
+   0118 0A                 1014 	.db 0x0A
+   0119 0D                 1015 	.db 0x0D
+   011A 00                 1016 	.db 0x00
+   011B                    1017 __str_4:
+   011B 09                 1018 	.db 0x09
+   011C 09                 1019 	.db 0x09
+   011D 09                 1020 	.db 0x09
+   011E 09                 1021 	.db 0x09
+   011F 09                 1022 	.db 0x09
+   0120 09                 1023 	.db 0x09
+   0121 09                 1024 	.db 0x09
+   0122 09                 1025 	.db 0x09
+   0123 20 50 65 72 66 6F  1026 	.ascii " Performing the the lcdinit() function..."
+        72 6D 69 6E 67 20
+        74 68 65 20 74 68
+        65 20 6C 63 64 69
+        6E 69 74 28 29 20
+        66 75 6E 63 74 69
+        6F 6E 2E 2E 2E
+   014C 0A                 1027 	.db 0x0A
+   014D 0D                 1028 	.db 0x0D
+   014E 00                 1029 	.db 0x00
+   014F                    1030 __str_5:
+   014F 09                 1031 	.db 0x09
+   0150 09                 1032 	.db 0x09
+   0151 09                 1033 	.db 0x09
+   0152 09                 1034 	.db 0x09
+   0153 09                 1035 	.db 0x09
+   0154 09                 1036 	.db 0x09
+   0155 09                 1037 	.db 0x09
+   0156 09                 1038 	.db 0x09
+   0157 20 59 6F 75 20 63  1039 	.ascii " You can observe the cursor blinking at the position"
+        61 6E 20 6F 62 73
+        65 72 76 65 20 74
+        68 65 20 63 75 72
+        73 6F 72 20 62 6C
+        69 6E 6B 69 6E 67
+        20 61 74 20 74 68
+        65 20 70 6F 73 69
+        74 69 6F 6E
+   018B 20 28 30 2C 30 29  1040 	.ascii " (0,0)"
+   0191 0A                 1041 	.db 0x0A
+   0192 0D                 1042 	.db 0x0D
+   0193 00                 1043 	.db 0x00
+   0194                    1044 __str_6:
+   0194 09                 1045 	.db 0x09
+   0195 09                 1046 	.db 0x09
+   0196 09                 1047 	.db 0x09
+   0197 09                 1048 	.db 0x09
+   0198 09                 1049 	.db 0x09
+   0199 09                 1050 	.db 0x09
+   019A 09                 1051 	.db 0x09
+   019B 09                 1052 	.db 0x09
+   019C 2D 2D 2D 2D 2D 2D  1053 	.ascii "----------------------------------------------------"
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D
+   01D0 2D 2D 2D 2D 2D 2D  1054 	.ascii "---------------------------"
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D 2D 2D 2D
+        2D 2D 2D
+   01EB 0A                 1055 	.db 0x0A
+   01EC 0D                 1056 	.db 0x0D
+   01ED 00                 1057 	.db 0x00
+   01EE                    1058 __str_7:
+   01EE 09                 1059 	.db 0x09
+   01EF 09                 1060 	.db 0x09
+   01F0 09                 1061 	.db 0x09
+   01F1 09                 1062 	.db 0x09
+   01F2 09                 1063 	.db 0x09
+   01F3 09                 1064 	.db 0x09
+   01F4 09                 1065 	.db 0x09
+   01F5 09                 1066 	.db 0x09
+   01F6 20 54 68 65 20 73  1067 	.ascii " The second function I am going to demonstrate is lc"
+        65 63 6F 6E 64 20
+        66 75 6E 63 74 69
+        6F 6E 20 49 20 61
+        6D 20 67 6F 69 6E
+        67 20 74 6F 20 64
+        65 6D 6F 6E 73 74
+        72 61 74 65 20 69
+        73 20 6C 63
+   022A 64 67 6F 74 6F 61  1068 	.ascii "dgotoaddr()"
+        64 64 72 28 29
+   0235 0A                 1069 	.db 0x0A
+   0236 0D                 1070 	.db 0x0D
+   0237 00                 1071 	.db 0x00
+   0238                    1072 __str_8:
+   0238 09                 1073 	.db 0x09
+   0239 09                 1074 	.db 0x09
+   023A 09                 1075 	.db 0x09
+   023B 09                 1076 	.db 0x09
+   023C 09                 1077 	.db 0x09
+   023D 09                 1078 	.db 0x09
+   023E 09                 1079 	.db 0x09
+   023F 09                 1080 	.db 0x09
+   0240 20 45 6E 74 65 72  1081 	.ascii " Enter the address at which u want to point your cur"
+        20 74 68 65 20 61
+        64 64 72 65 73 73
+        20 61 74 20 77 68
+        69 63 68 20 75 20
+        77 61 6E 74 20 74
+        6F 20 70 6F 69 6E
+        74 20 79 6F 75 72
+        20 63 75 72
+   0274 73 6F 72           1082 	.ascii "sor"
+   0277 0A                 1083 	.db 0x0A
+   0278 0D                 1084 	.db 0x0D
+   0279 00                 1085 	.db 0x00
+   027A                    1086 __str_9:
+   027A 09                 1087 	.db 0x09
+   027B 09                 1088 	.db 0x09
+   027C 09                 1089 	.db 0x09
+   027D 09                 1090 	.db 0x09
+   027E 09                 1091 	.db 0x09
+   027F 09                 1092 	.db 0x09
+   0280 09                 1093 	.db 0x09
+   0281 09                 1094 	.db 0x09
+   0282 20 54 68 65 20 61  1095 	.ascii " The address you have entered is %d and is a valid a"
+        64 64 72 65 73 73
+        20 79 6F 75 20 68
+        61 76 65 20 65 6E
+        74 65 72 65 64 20
+        69 73 20 25 64 20
+        61 6E 64 20 69 73
+        20 61 20 76 61 6C
+        69 64 20 61
+   02B6 64 64 72 65 73 73  1096 	.ascii "ddress"
+   02BC 0A                 1097 	.db 0x0A
+   02BD 0D                 1098 	.db 0x0D
+   02BE 00                 1099 	.db 0x00
+   02BF                    1100 __str_10:
+   02BF 09                 1101 	.db 0x09
+   02C0 09                 1102 	.db 0x09
+   02C1 09                 1103 	.db 0x09
+   02C2 09                 1104 	.db 0x09
+   02C3 09                 1105 	.db 0x09
+   02C4 09                 1106 	.db 0x09
+   02C5 09                 1107 	.db 0x09
+   02C6 09                 1108 	.db 0x09
+   02C7 20 4E 6F 77 20 75  1109 	.ascii " Now u can the see the the courser blinking at addre"
+        20 63 61 6E 20 74
+        68 65 20 73 65 65
+        20 74 68 65 20 74
+        68 65 20 63 6F 75
+        72 73 65 72 20 62
+        6C 69 6E 6B 69 6E
+        67 20 61 74 20 61
+        64 64 72 65
+   02FB 73 73 20 3A 20     1110 	.ascii "ss : "
+   0300 00                 1111 	.db 0x00
+   0301                    1112 __str_11:
+   0301 20 2A 20 25 64 20  1113 	.ascii " * %d *"
+        2A
+   0308 0A                 1114 	.db 0x0A
+   0309 0D                 1115 	.db 0x0D
+   030A 00                 1116 	.db 0x00
+   030B                    1117 __str_12:
+   030B 09                 1118 	.db 0x09
+   030C 09                 1119 	.db 0x09
+   030D 09                 1120 	.db 0x09
+   030E 09                 1121 	.db 0x09
+   030F 09                 1122 	.db 0x09
+   0310 09                 1123 	.db 0x09
+   0311 09                 1124 	.db 0x09
+   0312 09                 1125 	.db 0x09
+   0313 20 59 69 70 65 65  1126 	.ascii " Yipee !! lcdgotoaddr() successfully demonstrated"
+        20 21 21 20 6C 63
+        64 67 6F 74 6F 61
+        64 64 72 28 29 20
+        73 75 63 63 65 73
+        73 66 75 6C 6C 79
+        20 64 65 6D 6F 6E
+        73 74 72 61 74 65
+        64
+   0344 0A                 1127 	.db 0x0A
+   0345 0D                 1128 	.db 0x0D
+   0346 00                 1129 	.db 0x00
+   0347                    1130 __str_13:
+   0347 09                 1131 	.db 0x09
+   0348 09                 1132 	.db 0x09
+   0349 09                 1133 	.db 0x09
+   034A 09                 1134 	.db 0x09
+   034B 09                 1135 	.db 0x09
+   034C 09                 1136 	.db 0x09
+   034D 09                 1137 	.db 0x09
+   034E 09                 1138 	.db 0x09
+   034F 20 54 68 65 20 61  1139 	.ascii " The address you have entered is %d and is not a val"
+        64 64 72 65 73 73
+        20 79 6F 75 20 68
+        61 76 65 20 65 6E
+        74 65 72 65 64 20
+        69 73 20 25 64 20
+        61 6E 64 20 69 73
+        20 6E 6F 74 20 61
+        20 76 61 6C
+   0383 69 64 20 61 64 64  1140 	.ascii "id address"
+        72 65 73 73
+   038D 0A                 1141 	.db 0x0A
+   038E 0D                 1142 	.db 0x0D
+   038F 00                 1143 	.db 0x00
+   0390                    1144 __str_14:
+   0390 09                 1145 	.db 0x09
+   0391 09                 1146 	.db 0x09
+   0392 09                 1147 	.db 0x09
+   0393 09                 1148 	.db 0x09
+   0394 09                 1149 	.db 0x09
+   0395 09                 1150 	.db 0x09
+   0396 09                 1151 	.db 0x09
+   0397 09                 1152 	.db 0x09
+   0398 20 54 68 65 20 6E  1153 	.ascii " The next function I am going to demonstrate is lcdg"
+        65 78 74 20 66 75
+        6E 63 74 69 6F 6E
+        20 49 20 61 6D 20
+        67 6F 69 6E 67 20
+        74 6F 20 64 65 6D
+        6F 6E 73 74 72 61
+        74 65 20 69 73 20
+        6C 63 64 67
+   03CC 6F 74 6F 78 79 28  1154 	.ascii "otoxy()"
+        29
+   03D3 0A                 1155 	.db 0x0A
+   03D4 0D                 1156 	.db 0x0D
+   03D5 00                 1157 	.db 0x00
+   03D6                    1158 __str_15:
+   03D6 0A                 1159 	.db 0x0A
+   03D7 0D                 1160 	.db 0x0D
+   03D8 0A                 1161 	.db 0x0A
+   03D9 0D                 1162 	.db 0x0D
+   03DA 00                 1163 	.db 0x00
+   03DB                    1164 __str_16:
+   03DB 09                 1165 	.db 0x09
+   03DC 09                 1166 	.db 0x09
+   03DD 09                 1167 	.db 0x09
+   03DE 09                 1168 	.db 0x09
+   03DF 09                 1169 	.db 0x09
+   03E0 09                 1170 	.db 0x09
+   03E1 09                 1171 	.db 0x09
+   03E2 09                 1172 	.db 0x09
+   03E3 20 40 40 40 40 40  1173 	.ascii " @@@@@@@@@@@@@ CONDITIONS FOR 'x' and 'y' @@@@@@@@@@"
+        40 40 40 40 40 40
+        40 40 20 43 4F 4E
+        44 49 54 49 4F 4E
+        53 20 46 4F 52 20
+        27 78 27 20 61 6E
+        64 20 27 79 27 20
+        40 40 40 40 40 40
+        40 40 40 40
+   0417 40 40 40           1174 	.ascii "@@@"
+   041A 0A                 1175 	.db 0x0A
+   041B 0D                 1176 	.db 0x0D
+   041C 00                 1177 	.db 0x00
+   041D                    1178 __str_17:
+   041D 09                 1179 	.db 0x09
+   041E 09                 1180 	.db 0x09
+   041F 09                 1181 	.db 0x09
+   0420 09                 1182 	.db 0x09
+   0421 09                 1183 	.db 0x09
+   0422 09                 1184 	.db 0x09
+   0423 09                 1185 	.db 0x09
+   0424 09                 1186 	.db 0x09
+   0425 20 31 2E 20 54 68  1187 	.ascii " 1. The value of 'x' should be in between '0' and '1"
+        65 20 76 61 6C 75
+        65 20 6F 66 20 27
+        78 27 20 73 68 6F
+        75 6C 64 20 62 65
+        20 69 6E 20 62 65
+        74 77 65 65 6E 20
+        27 30 27 20 61 6E
+        64 20 27 31
+   0459 35 27              1188 	.ascii "5'"
+   045B 0A                 1189 	.db 0x0A
+   045C 0D                 1190 	.db 0x0D
+   045D 00                 1191 	.db 0x00
+   045E                    1192 __str_18:
+   045E 09                 1193 	.db 0x09
+   045F 09                 1194 	.db 0x09
+   0460 09                 1195 	.db 0x09
+   0461 09                 1196 	.db 0x09
+   0462 09                 1197 	.db 0x09
+   0463 09                 1198 	.db 0x09
+   0464 09                 1199 	.db 0x09
+   0465 09                 1200 	.db 0x09
+   0466 20 32 2E 20 54 68  1201 	.ascii " 2. The value of 'y' should be in between '0' and '3"
+        65 20 76 61 6C 75
+        65 20 6F 66 20 27
+        79 27 20 73 68 6F
+        75 6C 64 20 62 65
+        20 69 6E 20 62 65
+        74 77 65 65 6E 20
+        27 30 27 20 61 6E
+        64 20 27 33
+   049A 27                 1202 	.ascii "'"
+   049B 0A                 1203 	.db 0x0A
+   049C 0D                 1204 	.db 0x0D
+   049D 00                 1205 	.db 0x00
+   049E                    1206 __str_19:
+   049E 09                 1207 	.db 0x09
+   049F 09                 1208 	.db 0x09
+   04A0 09                 1209 	.db 0x09
+   04A1 09                 1210 	.db 0x09
+   04A2 09                 1211 	.db 0x09
+   04A3 09                 1212 	.db 0x09
+   04A4 09                 1213 	.db 0x09
+   04A5 09                 1214 	.db 0x09
+   04A6 20 45 6E 74 65 72  1215 	.ascii " Enter the y (row)"
+        20 74 68 65 20 79
+        20 28 72 6F 77 29
+   04B8 0A                 1216 	.db 0x0A
+   04B9 0D                 1217 	.db 0x0D
+   04BA 00                 1218 	.db 0x00
+   04BB                    1219 __str_20:
+   04BB 09                 1220 	.db 0x09
+   04BC 09                 1221 	.db 0x09
+   04BD 09                 1222 	.db 0x09
+   04BE 09                 1223 	.db 0x09
+   04BF 09                 1224 	.db 0x09
+   04C0 09                 1225 	.db 0x09
+   04C1 09                 1226 	.db 0x09
+   04C2 09                 1227 	.db 0x09
+   04C3 20 79 5F 72 6F 77  1228 	.ascii " y_row you have entered : %d"
+        20 79 6F 75 20 68
+        61 76 65 20 65 6E
+        74 65 72 65 64 20
+        3A 20 25 64
+   04DF 0A                 1229 	.db 0x0A
+   04E0 0D                 1230 	.db 0x0D
+   04E1 00                 1231 	.db 0x00
+   04E2                    1232 __str_21:
+   04E2 09                 1233 	.db 0x09
+   04E3 09                 1234 	.db 0x09
+   04E4 09                 1235 	.db 0x09
+   04E5 09                 1236 	.db 0x09
+   04E6 09                 1237 	.db 0x09
+   04E7 09                 1238 	.db 0x09
+   04E8 09                 1239 	.db 0x09
+   04E9 09                 1240 	.db 0x09
+   04EA 20 45 6E 74 65 72  1241 	.ascii " Enter the x (column)"
+        20 74 68 65 20 78
+        20 28 63 6F 6C 75
+        6D 6E 29
+   04FF 0A                 1242 	.db 0x0A
+   0500 0D                 1243 	.db 0x0D
+   0501 00                 1244 	.db 0x00
+   0502                    1245 __str_22:
+   0502 09                 1246 	.db 0x09
+   0503 09                 1247 	.db 0x09
+   0504 09                 1248 	.db 0x09
+   0505 09                 1249 	.db 0x09
+   0506 09                 1250 	.db 0x09
+   0507 09                 1251 	.db 0x09
+   0508 09                 1252 	.db 0x09
+   0509 09                 1253 	.db 0x09
+   050A 20 78 5F 63 6F 6C  1254 	.ascii " x_column you have entered : %d"
+        75 6D 6E 20 79 6F
+        75 20 68 61 76 65
+        20 65 6E 74 65 72
+        65 64 20 3A 20 25
+        64
+   0529 0A                 1255 	.db 0x0A
+   052A 0D                 1256 	.db 0x0D
+   052B 00                 1257 	.db 0x00
+   052C                    1258 __str_23:
+   052C 09                 1259 	.db 0x09
+   052D 09                 1260 	.db 0x09
+   052E 09                 1261 	.db 0x09
+   052F 09                 1262 	.db 0x09
+   0530 09                 1263 	.db 0x09
+   0531 09                 1264 	.db 0x09
+   0532 09                 1265 	.db 0x09
+   0533 09                 1266 	.db 0x09
+   0534 20 4E 6F 77 20 44  1267 	.ascii " Now Demonstrating lcdputstr() and lcdputch()..."
+        65 6D 6F 6E 73 74
+        72 61 74 69 6E 67
+        20 6C 63 64 70 75
+        74 73 74 72 28 29
+        20 61 6E 64 20 6C
+        63 64 70 75 74 63
+        68 28 29 2E 2E 2E
+   0564 0A                 1268 	.db 0x0A
+   0565 0D                 1269 	.db 0x0D
+   0566 00                 1270 	.db 0x00
+   0567                    1271 __str_24:
+   0567 09                 1272 	.db 0x09
+   0568 09                 1273 	.db 0x09
+   0569 09                 1274 	.db 0x09
+   056A 09                 1275 	.db 0x09
+   056B 09                 1276 	.db 0x09
+   056C 09                 1277 	.db 0x09
+   056D 09                 1278 	.db 0x09
+   056E 09                 1279 	.db 0x09
+   056F 09                 1280 	.db 0x09
+   0570 09                 1281 	.db 0x09
+   0571 20 31 2E 20 44 65  1282 	.ascii " 1. Demonstrate lcdputstr()"
+        6D 6F 6E 73 74 72
+        61 74 65 20 6C 63
+        64 70 75 74 73 74
+        72 28 29
+   058C 0A                 1283 	.db 0x0A
+   058D 0D                 1284 	.db 0x0D
+   058E 00                 1285 	.db 0x00
+   058F                    1286 __str_25:
+   058F 09                 1287 	.db 0x09
+   0590 09                 1288 	.db 0x09
+   0591 09                 1289 	.db 0x09
+   0592 09                 1290 	.db 0x09
+   0593 09                 1291 	.db 0x09
+   0594 09                 1292 	.db 0x09
+   0595 09                 1293 	.db 0x09
+   0596 09                 1294 	.db 0x09
+   0597 09                 1295 	.db 0x09
+   0598 09                 1296 	.db 0x09
+   0599 20 32 2E 20 44 65  1297 	.ascii " 2. Demonstrate lcdputch()"
+        6D 6F 6E 73 74 72
+        61 74 65 20 6C 63
+        64 70 75 74 63 68
+        28 29
+   05B3 0A                 1298 	.db 0x0A
+   05B4 0D                 1299 	.db 0x0D
+   05B5 00                 1300 	.db 0x00
+   05B6                    1301 __str_26:
+   05B6 09                 1302 	.db 0x09
+   05B7 09                 1303 	.db 0x09
+   05B8 09                 1304 	.db 0x09
+   05B9 09                 1305 	.db 0x09
+   05BA 09                 1306 	.db 0x09
+   05BB 09                 1307 	.db 0x09
+   05BC 09                 1308 	.db 0x09
+   05BD 09                 1309 	.db 0x09
+   05BE 09                 1310 	.db 0x09
+   05BF 09                 1311 	.db 0x09
+   05C0 20 50 6C 65 61 73  1312 	.ascii " Please enter your option"
+        65 20 65 6E 74 65
+        72 20 79 6F 75 72
+        20 6F 70 74 69 6F
+        6E
+   05D9 0A                 1313 	.db 0x0A
+   05DA 0D                 1314 	.db 0x0D
+   05DB 00                 1315 	.db 0x00
+   05DC                    1316 __str_27:
+   05DC 09                 1317 	.db 0x09
+   05DD 09                 1318 	.db 0x09
+   05DE 09                 1319 	.db 0x09
+   05DF 09                 1320 	.db 0x09
+   05E0 09                 1321 	.db 0x09
+   05E1 09                 1322 	.db 0x09
+   05E2 09                 1323 	.db 0x09
+   05E3 09                 1324 	.db 0x09
+   05E4 09                 1325 	.db 0x09
+   05E5 09                 1326 	.db 0x09
+   05E6 20 45 6E 74 65 72  1327 	.ascii " Enter the string you want to display"
+        20 74 68 65 20 73
+        74 72 69 6E 67 20
+        79 6F 75 20 77 61
+        6E 74 20 74 6F 20
+        64 69 73 70 6C 61
+        79
+   060B 0A                 1328 	.db 0x0A
+   060C 0D                 1329 	.db 0x0D
+   060D 00                 1330 	.db 0x00
+   060E                    1331 __str_28:
+   060E 09                 1332 	.db 0x09
+   060F 09                 1333 	.db 0x09
+   0610 09                 1334 	.db 0x09
+   0611 09                 1335 	.db 0x09
+   0612 09                 1336 	.db 0x09
+   0613 09                 1337 	.db 0x09
+   0614 09                 1338 	.db 0x09
+   0615 09                 1339 	.db 0x09
+   0616 09                 1340 	.db 0x09
+   0617 09                 1341 	.db 0x09
+   0618 20 54 68 65 20 53  1342 	.ascii " The String you have entered is :"
+        74 72 69 6E 67 20
+        79 6F 75 20 68 61
+        76 65 20 65 6E 74
+        65 72 65 64 20 69
+        73 20 3A
+   0639 00                 1343 	.db 0x00
+   063A                    1344 __str_29:
+   063A 20 2D 2D 2D 20 20  1345 	.ascii " ---  %s  ---"
+        25 73 20 20 2D 2D
+        2D
+   0647 00                 1346 	.db 0x00
+   0648                    1347 __str_30:
+   0648 09                 1348 	.db 0x09
+   0649 09                 1349 	.db 0x09
+   064A 09                 1350 	.db 0x09
+   064B 09                 1351 	.db 0x09
+   064C 09                 1352 	.db 0x09
+   064D 09                 1353 	.db 0x09
+   064E 09                 1354 	.db 0x09
+   064F 09                 1355 	.db 0x09
+   0650 09                 1356 	.db 0x09
+   0651 09                 1357 	.db 0x09
+   0652 20 45 6E 74 65 72  1358 	.ascii " Enter the character you want to display"
+        20 74 68 65 20 63
+        68 61 72 61 63 74
+        65 72 20 79 6F 75
+        20 77 61 6E 74 20
+        74 6F 20 64 69 73
+        70 6C 61 79
+   067A 0A                 1359 	.db 0x0A
+   067B 0D                 1360 	.db 0x0D
+   067C 00                 1361 	.db 0x00
+   067D                    1362 __str_31:
+   067D 09                 1363 	.db 0x09
+   067E 09                 1364 	.db 0x09
+   067F 09                 1365 	.db 0x09
+   0680 09                 1366 	.db 0x09
+   0681 09                 1367 	.db 0x09
+   0682 09                 1368 	.db 0x09
+   0683 09                 1369 	.db 0x09
+   0684 09                 1370 	.db 0x09
+   0685 09                 1371 	.db 0x09
+   0686 09                 1372 	.db 0x09
+   0687 20 54 68 65 20 63  1373 	.ascii " The character you have entered is :"
+        68 61 72 61 63 74
+        65 72 20 79 6F 75
+        20 68 61 76 65 20
+        65 6E 74 65 72 65
+        64 20 69 73 20 3A
+   06AB 00                 1374 	.db 0x00
+   06AC                    1375 __str_32:
+   06AC 09                 1376 	.db 0x09
+   06AD 09                 1377 	.db 0x09
+   06AE 09                 1378 	.db 0x09
+   06AF 09                 1379 	.db 0x09
+   06B0 09                 1380 	.db 0x09
+   06B1 09                 1381 	.db 0x09
+   06B2 09                 1382 	.db 0x09
+   06B3 09                 1383 	.db 0x09
+   06B4 09                 1384 	.db 0x09
+   06B5 09                 1385 	.db 0x09
+   06B6 20 49 6E 76 61 6C  1386 	.ascii " Invalid option entered "
+        69 64 20 6F 70 74
+        69 6F 6E 20 65 6E
+        74 65 72 65 64 20
+   06CE 0A                 1387 	.db 0x0A
+   06CF 0D                 1388 	.db 0x0D
+   06D0 00                 1389 	.db 0x00
+   06D1                    1390 __str_33:
+   06D1 09                 1391 	.db 0x09
+   06D2 09                 1392 	.db 0x09
+   06D3 09                 1393 	.db 0x09
+   06D4 09                 1394 	.db 0x09
+   06D5 09                 1395 	.db 0x09
+   06D6 09                 1396 	.db 0x09
+   06D7 09                 1397 	.db 0x09
+   06D8 09                 1398 	.db 0x09
+   06D9 09                 1399 	.db 0x09
+   06DA 09                 1400 	.db 0x09
+   06DB 20 2A 2A 2A 52 45  1401 	.ascii " ***RE ENTER YOUR OPTION *** "
+        20 45 4E 54 45 52
+        20 59 4F 55 52 20
+        4F 50 54 49 4F 4E
+        20 2A 2A 2A 20
+   06F8 0A                 1402 	.db 0x0A
+   06F9 0D                 1403 	.db 0x0D
+   06FA 00                 1404 	.db 0x00
+                           1405 	.area XINIT   (CODE)
